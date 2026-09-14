@@ -1,14 +1,14 @@
 :root {
-  --paper: #f2eee5;
-  --paper-deep: #e5ded1;
-  --ink: #24221d;
-  --muted: #6e675d;
-  --line: #c9c0b2;
-  --brick: #914f3d;
-  --green: #385d50;
-  --gold: #8b6b32;
-  --blue: #4e6570;
-  --white: #fbf8f1;
+  --paper: #f8f7f2;
+  --paper-deep: #e7e3da;
+  --ink: #171715;
+  --muted: #49453e;
+  --line: #a9a195;
+  --brick: #783426;
+  --green: #245044;
+  --gold: #70521e;
+  --blue: #334f5c;
+  --white: #fffefa;
   --serif: "Source Serif 4", Georgia, serif;
   --sans: "Libre Franklin", Arial, sans-serif;
   --mono: "IBM Plex Mono", monospace;
@@ -231,4 +231,375 @@ footer strong { color: #eee8de; font: 600 17px/1 var(--serif); text-transform: n
   body { background: white; }
   .section, .opening { break-inside: avoid; padding: 28px 0; }
   details:not([open]) > *:not(summary) { display: block; }
+}
+
+
+/* Revision 05: legibility and reader-perspective layer */
+body {
+  font-size: 18px;
+  line-height: 1.68;
+}
+:focus-visible {
+  outline: 3px solid #0b5cad;
+  outline-offset: 4px;
+}
+.masthead {
+  gap: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: rgba(248,247,242,.98);
+}
+.identity span { font-size: 23px; }
+.identity small,
+.masthead nav {
+  color: #34312c;
+  font-size: 13px;
+  line-height: 1.25;
+  letter-spacing: .06em;
+}
+.masthead nav { gap: 17px; }
+.perspective-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.perspective-status strong { color: var(--ink); }
+.perspective-status button {
+  padding: 7px 10px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  color: var(--ink);
+  background: transparent;
+  font: 600 13px/1 var(--sans);
+  cursor: pointer;
+}
+.perspective-status button:hover { color: var(--white); background: var(--ink); }
+
+.opening {
+  padding-top: 72px;
+  padding-bottom: 64px;
+}
+.opening-kicker {
+  margin-bottom: 50px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+.opening-grid {
+  grid-template-columns: 1.05fr .95fr;
+  gap: 6vw;
+}
+.section-label {
+  margin-bottom: 17px;
+  color: var(--brick);
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: .1em;
+}
+h1 {
+  max-width: 920px;
+  font-size: clamp(48px, 6.2vw, 84px);
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+.standfirst { max-width: 720px; }
+.standfirst p {
+  font-size: clamp(22px, 1.65vw, 28px);
+  line-height: 1.48;
+}
+.standfirst p + p {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.editor-note p {
+  color: #e2ddd4;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.editor-note .section-label { color: #f0bca2; }
+.legend { gap: 16px 20px; }
+.legend p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.badge {
+  padding: 6px 9px;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .045em;
+}
+.section-head h2 {
+  max-width: 880px;
+  font-size: clamp(40px, 4.7vw, 68px);
+  line-height: 1;
+}
+.section-head > p,
+.section-head > div > p:last-child,
+.section-head.narrow > p:last-child {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.chapter-number { font-size: 13px; }
+.tree-chapter h3 {
+  font-size: 34px;
+  line-height: 1.1;
+}
+.tree-chapter header p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.relationship span,
+.relationship small,
+.line-label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.relationship strong,
+.living-chip strong,
+.current-marriage strong { font-size: 22px; }
+.living-chip small {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.current-marriage > span:not(.badge):not(.line-label) {
+  color: var(--muted);
+  font-size: 16px;
+}
+.person summary strong {
+  font-size: 21px;
+  line-height: 1.25;
+}
+.person summary small {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.person .initials { font-size: 13px; }
+.person-body p {
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.private-generation strong,
+.older-line strong { font-size: 22px; }
+.private-generation small,
+.branch-note small {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.branch-note p:nth-child(2) {
+  font-size: 22px;
+  line-height: 1.6;
+}
+.branch-register h4 { font-size: 27px; }
+.branch-register p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.branch-register p:nth-of-type(1) {
+  font-size: 12px;
+  line-height: 1.35;
+}
+.stories article > span { font-size: 13px; }
+.stories h3 {
+  font-size: 31px;
+  line-height: 1.1;
+}
+.stories p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+.faith-grid h3 {
+  font-size: 30px;
+  line-height: 1.08;
+}
+.faith-grid p {
+  color: #e0dcd4;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.young-readers strong {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.young-readers p {
+  font-size: 23px;
+  line-height: 1.5;
+}
+.places span { font-size: 12px; }
+.places h3 { font-size: 32px; }
+.places p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.places a {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+thead th {
+  color: #3f3a34;
+  font-size: 13px;
+  line-height: 1.35;
+}
+tbody th {
+  font-size: 18px;
+  line-height: 1.45;
+}
+tbody td {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.source-register h3 { font-size: 40px; }
+.source-register > div > p:last-child {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.source-register li > span { font-size: 13px; }
+.source-register li strong {
+  font-size: 16px;
+  line-height: 1.45;
+}
+.source-register li small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.source-register li > a {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.contribution-grid h3 { font-size: 28px; }
+.contribution-grid ul,
+.contribution-grid ol {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.submission-status a {
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.submission-status p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+footer p {
+  color: #ddd7cd;
+  font-size: 13px;
+  line-height: 1.65;
+}
+footer strong { font-size: 21px; }
+
+/* The perspective chooser is the front door, not a marketing overlay. */
+.perspective-gate {
+  width: min(980px, calc(100% - 36px));
+  max-height: calc(100vh - 36px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 24px 80px rgba(0,0,0,.35);
+}
+.perspective-gate::backdrop {
+  background: rgba(23,23,21,.78);
+  backdrop-filter: blur(3px);
+}
+.perspective-panel { padding: clamp(28px, 5vw, 58px); }
+.perspective-panel h2 {
+  max-width: 780px;
+  margin: 0;
+  font: 600 clamp(40px, 5.5vw, 64px)/1 var(--serif);
+  letter-spacing: -.035em;
+}
+#perspective-intro {
+  max-width: 760px;
+  margin: 22px 0 30px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+}
+.perspective-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.perspective-options button {
+  min-height: 120px;
+  padding: 20px;
+  text-align: left;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+}
+.perspective-options button:hover {
+  border-color: var(--ink);
+  background: var(--paper-deep);
+}
+.perspective-options strong {
+  display: block;
+  margin-bottom: 8px;
+  font: 600 22px/1.2 var(--serif);
+}
+.perspective-options span {
+  display: block;
+  color: var(--muted);
+  font: 400 16px/1.5 var(--sans);
+}
+.perspective-assurance {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.perspective-assurance strong { color: var(--ink); }
+
+@media (max-width: 1180px) {
+  .masthead nav { display: none; }
+}
+@media (max-width: 760px) {
+  .masthead { padding-inline: 20px; }
+  .identity small { display: none; }
+  .perspective-status > span { display: none; }
+  .opening { padding-top: 52px; }
+  .opening-kicker { align-items: flex-start; flex-direction: column; gap: 8px; }
+  h1 { font-size: clamp(45px, 13vw, 64px); }
+  .perspective-options { grid-template-columns: 1fr; }
+  .perspective-options button { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@media print {
+  .perspective-gate,
+  .perspective-status { display: none !important; }
 }
