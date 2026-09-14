@@ -1,0 +1,85 @@
+name: Family record correction or addition
+description: Propose a documented change, new person, tradition, place, or source.
+title: "Family record: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the family record. This issue will be public.
+
+        **Do not post unredacted records, exact dates, addresses, contact details, or photographs concerning living people.** Describe private evidence below and ask the family editor to arrange a secure review.
+  - type: input
+    id: person
+    attributes:
+      label: Person or family branch
+      description: Who or which branch does this concern?
+      placeholder: Benjamin Parajas Israel, or the Apostol branch
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Existing claim or proposed addition
+      description: State one precise fact, relationship, tradition, place, or story to review.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed wording
+      description: What should the family record say instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence-type
+    attributes:
+      label: Evidence type
+      options:
+        - Civil, synagogue, church, cemetery, immigration, or military record
+        - Photograph or inscription
+        - First-hand account or oral history
+        - Family tree or inherited family material
+        - Published source or archive catalogue
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence description and public links
+      description: Identify the repository, collection, record number, page, date, or URL. For private material, describe it without attaching it.
+    validations:
+      required: true
+  - type: input
+    id: relationship
+    attributes:
+      label: Your relationship to this history
+      placeholder: Grandchild, family researcher, archivist, unrelated researcher
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Your confidence
+      options:
+        - Certain — I have reviewed a primary or institutional record
+        - Strong — multiple sources agree
+        - Possible — family memory or an indirect clue
+        - Question — I am asking the family to investigate
+    validations:
+      required: true
+  - type: dropdown
+    id: privacy
+    attributes:
+      label: Publication status of the information
+      options:
+        - Public and concerns deceased people or historical context
+        - Public with the living person's explicit consent
+        - Family-only or private — arrange secure review
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not included private personal information about a living person without their explicit consent.
+          required: true
