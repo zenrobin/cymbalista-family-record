@@ -1,187 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An evidence-led family tree of the Cymbalista, Simblist, Symberlist, and Johnson family, from Przysucha to four continents.">
-  <meta name="theme-color" content="#173c34">
-  <title>Cymbalista Family Tree · Roots, faith & journeys</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173c34'/%3E%3Cpath d='M32 12v16M32 28 18 39M32 28l14 11M18 39v13m28-13v13' fill='none' stroke='%23e9bf73' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='11' r='5' fill='%23fff8e8'/%3E%3Ccircle cx='18' cy='52' r='5' fill='%23fff8e8'/%3E%3Ccircle cx='46' cy='52' r='5' fill='%23fff8e8'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to the family tree</a>
-
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Cymbalista Family Tree home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span><strong>Cymbalista</strong><small>family tree</small></span>
-    </a>
-    <nav aria-label="Primary navigation">
-      <a href="#tree">Tree</a>
-      <a href="#special">What’s special</a>
-      <a href="#faith">Faith & tradition</a>
-      <a href="#places">Places</a>
-      <a href="#evidence">Evidence</a>
-    </nav>
-    <span class="edition-badge">Evidence-led edition</span>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow">Przysucha, Poland · c. 1760s onward</p>
-        <h1>A family named<br>for making music.</h1>
-        <p class="hero-dek">Nine generations across Warsaw, London, Boston, Sydney, and São Paulo—rebuilt as a living tree, with portraits preserved and uncertainty shown honestly.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#tree">Explore the tree</a>
-          <a class="button quiet" href="#places">Plan a roots journey</a>
-        </div>
-      </div>
-      <div class="hero-aside">
-        <p class="overline">How to read this archive</p>
-        <h2>History, without pretending every clue is proof.</h2>
-        <p>Each claim carries a plain-language evidence label. Historical setting is kept separate from what can be shown about a particular ancestor.</p>
-        <div class="mini-legend" aria-label="Evidence status key">
-          <span class="status verified">Verified</span>
-          <span class="status supported">Source-backed</span>
-          <span class="status reconstructed">Family reconstruction</span>
-          <span class="status open">Open question</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="stat-strip" aria-label="Archive summary">
-      <div><strong>9</strong><span>generations in the direct line</span></div>
-      <div><strong>3</strong><span>English surname branches</span></div>
-      <div><strong>4</strong><span>continents in the wider story</span></div>
-      <div><strong>171</strong><span>people in the private source tree</span></div>
-    </section>
-
-    <section class="section tree-section" id="tree" aria-labelledby="tree-title">
-      <div class="section-heading split-heading">
-        <div>
-          <p class="eyebrow">The recreated tree</p>
-          <h2 id="tree-title">People, not scanned pages</h2>
-          <p>This public edition rebuilds the ancestral spine and the three surname branches as accessible family cards. Choose a card for its story and evidence.</p>
-        </div>
-        <div class="tree-tools">
-          <div class="view-toggle" role="group" aria-label="Choose a tree view">
-            <button class="active" data-tree-view="line">Direct line</button>
-            <button data-tree-view="branches">Family branches</button>
-          </div>
-          <label class="search-field" for="person-search">
-            <span>Find a person</span>
-            <input id="person-search" type="search" placeholder="Joseph, Fajga, Samuel…" autocomplete="off">
-            <span class="search-results" id="search-results" hidden></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tree-workspace">
-        <div class="tree-canvas" id="tree-canvas" aria-label="Interactive family tree"></div>
-        <aside class="person-panel" id="person-panel" aria-live="polite"></aside>
-      </div>
-      <p class="privacy-note"><span aria-hidden="true">◐</span> Public-safe by default: living children’s photos and birth years are not included. Their place in the lineage is preserved.</p>
-    </section>
-
-    <section class="section special-section" id="special" aria-labelledby="special-title">
-      <div class="section-heading">
-        <p class="eyebrow">What is special about this past?</p>
-        <h2 id="special-title">Five things worth carrying forward</h2>
-        <p>This is more than a route across a map. It is a story about music, learning, reinvention, public service, and a family thread recovered after a century.</p>
-      </div>
-      <div class="feature-grid" id="feature-grid"></div>
-    </section>
-
-    <section class="section faith-section" id="faith" aria-labelledby="faith-title">
-      <div class="faith-intro">
-        <p class="eyebrow">Faith, religion & tradition</p>
-        <h2 id="faith-title">What the evidence says—and what it does not</h2>
-        <p>The family’s roots are Ashkenazi Jewish. The record preserves Hebrew names, Torah learning, synagogue membership, Jewish burial, and names passed across generations. It does <em>not</em> yet prove that the Cymbalistas belonged to Przysucha’s famous Hasidic court.</p>
-      </div>
-      <div class="faith-grid">
-        <article>
-          <span class="chapter-no">01</span>
-          <h3>Learning as a religious inheritance</h3>
-          <p>Rachmil’s gravestone is reported to call him <em>moreinu ha-rav</em>—“our teacher, the master”—and to praise a life occupied with Torah. That makes teaching, rather than status, the strongest family faith theme currently in the record.</p>
-          <span class="status reconstructed">Family source; inscription not re-inspected</span>
-        </article>
-        <article>
-          <span class="chapter-no">02</span>
-          <h3>Names kept memory alive</h3>
-          <p>The draft connects Fajga Pejsa’s Hebrew name, Feiga Pesi, with later Fanny, Phyllis, and Faye in Boston and Sydney. This fits an Ashkenazi memorial-naming pattern, but the intended namesake relationship still needs direct family or vital-record confirmation.</p>
-          <span class="status reconstructed">Plausible family reconstruction</span>
-        </article>
-        <article>
-          <span class="chapter-no">03</span>
-          <h3>Jewish life adapted across oceans</h3>
-          <p>In Sydney, Judge Samuel Hyman Simblist belonged to many local synagogues, served Central Synagogue, supported Zionist causes, and worked with Jewish immigrant welfare. A rabbi who knew him described a proud Jewish identity with Hebrew knowledge, not strict Orthodoxy.</p>
-          <span class="status verified">Independently verified</span>
-        </article>
-        <article>
-          <span class="chapter-no">04</span>
-          <h3>Przysucha was the setting, not proof of affiliation</h3>
-          <p>The town became a major center of Polish Hasidism under the Holy Jew and Simcha Bunim. That spiritual world prized learned, critical religious thought. It is important context for the family’s birthplace—but should not be turned into a claim that these ancestors were followers.</p>
-          <span class="status context">Verified historical context</span>
-        </article>
-      </div>
-      <aside class="kid-note">
-        <p class="overline">For younger readers</p>
-        <h3>Roots are clues, not instructions.</h3>
-        <p>Your ancestors were shaped by Jewish language, learning, community, and migration. You can visit those places and learn those traditions without assuming every ancestor believed or practiced in exactly the same way.</p>
-      </aside>
-    </section>
-
-    <section class="section places-section" id="places" aria-labelledby="places-title">
-      <div class="section-heading split-heading">
-        <div>
-          <p class="eyebrow">A roots journey</p>
-          <h2 id="places-title">Where descendants can go</h2>
-          <p>Start with places tied directly to the family, then use museums and living congregations to understand the worlds around them. Always confirm access before traveling.</p>
-        </div>
-        <div class="route-line" aria-label="Family migration route">Przysucha <span>→</span> Warsaw <span>→</span> London <span>→</span> Boston · Sydney · São Paulo</div>
-      </div>
-      <div class="place-grid" id="place-grid"></div>
-    </section>
-
-    <section class="section evidence-section" id="evidence" aria-labelledby="evidence-title">
-      <div class="section-heading split-heading">
-        <div>
-          <p class="eyebrow">Research ledger</p>
-          <h2 id="evidence-title">Confidence you can inspect</h2>
-          <p>Labels describe evidence type, not the importance of a person. “Family reconstruction” can be a strong lead; it simply needs the underlying record or DNA work attached before it becomes verified here.</p>
-        </div>
-        <div class="method-card">
-          <strong>No percentage theater</strong>
-          <p>A precise-looking “82%” would be misleading. These tiers tell you why a statement is trusted and what would strengthen it.</p>
-        </div>
-      </div>
-      <div class="evidence-table-wrap">
-        <table>
-          <thead><tr><th>Claim</th><th>Status</th><th>What supports it</th><th>Next useful check</th></tr></thead>
-          <tbody id="evidence-body"></tbody>
-        </table>
-      </div>
-      <div class="source-block">
-        <div>
-          <p class="overline">Source policy</p>
-          <h3>The originals stay private in the public edition.</h3>
-          <p>The uploaded 171-person export and narrative draft inform this reconstruction, but are not embedded or downloadable here because they contain living-family details. External research links remain public.</p>
-        </div>
-        <div class="source-list" id="source-list"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div><strong>Cymbalista · Simblist · Cymbalist · Symberlist · Johnson</strong><span>An evolving family archive</span></div>
-    <p>Rebuilt September 2026 · Corrections and sources are welcome.</p>
-  </footer>
-
-  <script src="app.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3b0887b4fdd7411',t:'MTc4OTQwMDg3Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Family record contribution",
+  "type": "object",
+  "required": ["person", "claim", "evidenceType", "publicationConsent"],
+  "properties": {
+    "person": { "type": "string" },
+    "claim": { "type": "string" },
+    "proposedValue": { "type": "string" },
+    "evidenceType": {
+      "type": "string",
+      "enum": ["record", "photograph", "oral-history", "family-tree", "published-source", "other"]
+    },
+    "sourceDescription": { "type": "string" },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "contributorRelationship": { "type": "string" },
+    "publicationConsent": {
+      "type": "string",
+      "enum": ["public", "family-only", "private-archive"]
+    },
+    "notes": { "type": "string" }
+  }
+}
