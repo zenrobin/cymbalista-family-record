@@ -14,11 +14,32 @@
 <body>
   <a class="skip-link" href="#record">Skip to the family record</a>
 
+  <dialog class="perspective-gate" id="perspective-gate" aria-labelledby="perspective-title" aria-describedby="perspective-intro">
+    <div class="perspective-panel">
+      <p class="section-label">Choose your point of view</p>
+      <h2 id="perspective-title">Where do you enter this story?</h2>
+      <p id="perspective-intro">The family record stays the same. Your choice changes which relationships, branches, places, and documentary chapters come first.</p>
+      <div class="perspective-options" role="list">
+        <button type="button" data-perspective-choice="richard"><strong>Richard Johnson</strong><span>Begin with the Cymbalista–Johnson line and the history Richard inherited.</span></button>
+        <button type="button" data-perspective-choice="robin"><strong>Robin Johnson</strong><span>Begin with Robin’s ancestry, marriages, and the histories passed to his children.</span></button>
+        <button type="button" data-perspective-choice="nolan"><strong>Nolan or Norah</strong><span>Give equal weight to the family lines inherited through Robin and April.</span></button>
+        <button type="button" data-perspective-choice="april"><strong>April</strong><span>Begin with the Israel–Parajas–Apostol line and its Filipino roots.</span></button>
+        <button type="button" data-perspective-choice="cymbalista"><strong>Cymbalista or Simblist relative</strong><span>Follow the surname, migrations, and related branches across countries.</span></button>
+        <button type="button" data-perspective-choice="israel"><strong>Israel or Apostol relative</strong><span>Begin with the Philippine branch and its open research questions.</span></button>
+      </div>
+      <p class="perspective-assurance"><strong>Perspective changes narration, not evidence.</strong> Names, sources, privacy limits, and confidence labels do not change.</p>
+    </div>
+  </dialog>
+
   <header class="masthead">
     <a class="identity" href="#top">
       <span>Cymbalista–Israel</span>
       <small>Family Record</small>
     </a>
+    <div class="perspective-status" aria-live="polite">
+      <span>Viewing as <strong id="perspective-name">guest</strong></span>
+      <button type="button" id="change-perspective">Change</button>
+    </div>
     <nav aria-label="Primary navigation">
       <a href="#tree">Family tree</a>
       <a href="#story">Documentary</a>
@@ -33,16 +54,16 @@
     <section class="opening" id="top">
       <div class="opening-kicker">
         <span>Public working edition</span>
-        <span>Revision 04 · 14 September 2026</span>
+        <span>Revision 05 · 14 September 2026</span>
       </div>
       <div class="opening-grid">
         <div>
-          <p class="section-label">A documented family history</p>
-          <h1>Two family lines,<br>kept in one record.</h1>
+          <p class="section-label" id="opening-label">A documented family history</p>
+          <h1 id="opening-title">One record.<br>Many ways in.</h1>
         </div>
         <div class="standfirst">
-          <p>This is the ancestry Nolan and Norah inherit through both parents: Robin’s Cymbalista–Johnson line and April’s Israel–Parajas–Apostol line.</p>
-          <p>It distinguishes records from family reconstruction, and historical setting from personal fact. Uncertainty is preserved because an honest question is more useful than a confident mistake.</p>
+          <p id="opening-standfirst">Choose where you enter the family. The record will reorganize itself around your relationships without changing the underlying facts.</p>
+          <p id="opening-context">Records remain distinct from family reconstruction, and historical setting from personal fact. Uncertainty is preserved because an honest question is more useful than a confident mistake.</p>
         </div>
       </div>
     </section>
@@ -70,12 +91,12 @@
       <header class="section-head">
         <div>
           <p class="section-label">The recreated family tree</p>
-          <h2>A family structure, not a stack of scanned pages</h2>
+          <h2 id="tree-title">A family structure, viewed from where you stand</h2>
         </div>
-        <p>Lines indicate descent, not certainty. Open each card for the present evidence. The original trees remain private because they contain living-family details.</p>
+        <p id="tree-intro">Lines indicate descent, not certainty. Open each card for the present evidence. Your perspective changes the order of the branches, while the evidence stays fixed.</p>
       </header>
 
-      <article class="tree-chapter current-family">
+      <article class="tree-chapter current-family" id="current-branch" data-branch="current">
         <header>
           <span class="chapter-number">01</span>
           <div><h3>Nolan and Norah’s immediate family</h3><p>The two parental lines meet here.</p></div>
@@ -111,7 +132,7 @@
         </div>
       </article>
 
-      <article class="tree-chapter">
+      <article class="tree-chapter" id="johnson-branch" data-branch="johnson">
         <header>
           <span class="chapter-number">02</span>
           <div><h3>Robin’s Cymbalista–Johnson ancestry</h3><p>From Przysucha and Warsaw through London to Massachusetts.</p></div>
@@ -167,7 +188,7 @@
         </div>
       </article>
 
-      <article class="tree-chapter april-branch">
+      <article class="tree-chapter april-branch" id="april-branch" data-branch="april">
         <header>
           <span class="chapter-number">03</span>
           <div><h3>April’s Israel–Parajas–Apostol ancestry</h3><p>Filipino roots with a strong research trail into Pangasinan.</p></div>
@@ -208,7 +229,7 @@
         </div>
       </article>
 
-      <article class="tree-chapter">
+      <article class="tree-chapter" id="wider-branches" data-branch="wider">
         <header>
           <span class="chapter-number">04</span>
           <div><h3>The wider Cymbalista branches</h3><p>One family name acquired several English spellings.</p></div>
@@ -229,11 +250,11 @@
         <p>These are not sales points. They are the recurring patterns that make the evidence worth preserving for the next generation.</p>
       </header>
       <div class="stories">
-        <article><span>01</span><div><h3>A name that remembers music</h3><p><em>Cymbalista</em> is understood as an occupational name associated with the cimbalom, a hammered-string instrument of Central and Eastern Europe. The narrative remembers Wolf and Icyk as musicians. The surname meaning is credible context; their personal occupations remain unverified.</p></div></article>
-        <article><span>02</span><div><h3>A teacher’s reputation crossed borders</h3><p>Rachmil is remembered as a rabbi, but the supplied gravestone summary more specifically emphasizes Torah teaching. That distinction matters: the strongest surviving religious inheritance may be learning and transmission rather than formal office.</p></div></article>
-        <article><span>03</span><div><h3>Migration changed spelling, work, and memory</h3><p>Przysucha became Warsaw; Warsaw became London; London opened into Boston, Sydney, and São Paulo. Simblist, Cymbalist, Symberlist, and eventually Johnson show how migration altered public identity while family relationships remained underneath.</p></div></article>
-        <article><span>04</span><div><h3>A lost Jewish connection was reconstructed</h3><p>The Johnson descendants reportedly grew up without knowing the Warsaw Jewish connection. Family research argues that DNA matches and records restored that link roughly a century later. It is a compelling reconstruction, but the match-by-match evidence should be published privately for review.</p></div></article>
-        <article><span>05</span><div><h3>The children inherit a second migration history</h3><p>April’s chart adds a Filipino story centered on the Israel, Parajas, and Apostol families. Pangasinan is the leading geographic clue, not yet a proven town-by-town route. This branch brings its own surnames, possible parish records, and traditions that deserve direct oral-history interviews.</p></div></article>
+        <article data-story="music"><span>01</span><div><h3>A name that remembers music</h3><p><em>Cymbalista</em> is understood as an occupational name associated with the cimbalom, a hammered-string instrument of Central and Eastern Europe. The narrative remembers Wolf and Icyk as musicians. The surname meaning is credible context; their personal occupations remain unverified.</p></div></article>
+        <article data-story="teaching"><span>02</span><div><h3>A teacher’s reputation crossed borders</h3><p>Rachmil is remembered as a rabbi, but the supplied gravestone summary more specifically emphasizes Torah teaching. That distinction matters: the strongest surviving religious inheritance may be learning and transmission rather than formal office.</p></div></article>
+        <article data-story="migration"><span>03</span><div><h3>Migration changed spelling, work, and memory</h3><p>Przysucha became Warsaw; Warsaw became London; London opened into Boston, Sydney, and São Paulo. Simblist, Cymbalist, Symberlist, and eventually Johnson show how migration altered public identity while family relationships remained underneath.</p></div></article>
+        <article data-story="rediscovery"><span>04</span><div><h3>A lost Jewish connection was reconstructed</h3><p>The Johnson descendants reportedly grew up without knowing the Warsaw Jewish connection. Family research argues that DNA matches and records restored that link roughly a century later. It is a compelling reconstruction, but the match-by-match evidence should be published privately for review.</p></div></article>
+        <article data-story="april"><span>05</span><div><h3>The children inherit a second migration history</h3><p>April’s chart adds a Filipino story centered on the Israel, Parajas, and Apostol families. Pangasinan is the leading geographic clue, not yet a proven town-by-town route. This branch brings its own surnames, possible parish records, and traditions that deserve direct oral-history interviews.</p></div></article>
       </div>
     </section>
 
@@ -248,7 +269,7 @@
         <article><h3>April’s family traditions</h3><p>Roman Catholicism is historically prominent in Pangasinan and the wider Ilocos Region, and the Diocese of Lingayen-Dagupan has extensive parish registers. Neither fact proves what April’s parents or grandparents practiced.</p><span class="badge open">Ask the family</span></article>
         <article><h3>Questions for oral history</h3><p>Which holidays were observed? Which prayers, foods, languages, saints, synagogue or parish communities mattered? Which customs continued after migration? Answers should be attributed to the person who remembers them.</p><span class="badge open">Interview priority</span></article>
       </div>
-      <aside class="young-readers"><strong>For Nolan and Norah</strong><p>Your roots include Jewish communities in Poland, England, America, and Australia, and Filipino family lines that point toward Pangasinan. These places can help you understand your ancestors, but they do not decide what you must believe.</p></aside>
+      <aside class="young-readers reader-context"><strong id="reader-label">From your point of view</strong><p id="reader-note">Choose a perspective to see which branches and places are most directly connected to you. The underlying family record remains shared.</p></aside>
     </section>
 
     <section class="section places-section" id="places">
@@ -323,8 +344,9 @@
   </main>
 
   <footer>
-    <p><strong>Cymbalista–Israel Family Record</strong><br>Working public edition · Revision 04 · 14 September 2026</p>
+    <p><strong>Cymbalista–Israel Family Record</strong><br>Working public edition · Revision 05 · 14 September 2026</p>
     <p>Family statements are not presented as proof unless independently supported. Living-family privacy is deliberate.</p>
   </footer>
+  <script src="app.js"></script>
 </body>
 </html>
