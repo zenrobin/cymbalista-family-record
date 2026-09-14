@@ -1,0 +1,43 @@
+name: Verify public family record
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/verify-public.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify anonymous production access
+        shell: bash
+        run: |
+          set -euo pipefail
+          sleep 20
+          url="https://cymbalista-family-record-robin-johnsons-projects.vercel.app"
+          page="$(mktemp)"
+          curl -fsSL --max-time 30 "$url/" -o "$page"
+          grep -Fq "A documented family history" "$page"
+          grep -Fq "April’s Israel–Parajas–Apostol ancestry" "$page"
+          grep -Fq "married 22 August 2026" "$page"
+          curl -fsSL --max-time 30 "$url/styles.css" | grep -Fq ".documentary-record-never-matches" && exit 1 || true
+          curl -fsSL --max-time 30 "$url/styles.css" | grep -Fq ".tree-chapter"
+          curl -fsSL --max-time 30 "$url/data/revisions.json" | grep -Fq '"edition": "04"'
+          for portrait in barbara benjamin dorothy joseph-sidney joseph; do
+            test "$(curl -fsSL --max-time 30 "https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/$portrait.webp" | file --brief --mime-type -)" = "image/webp"
+          done
+          printf 'Verified anonymously at %s\n%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$url" > .public-verification
+      - name: Record successful verification
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .public-verification
+          git commit -m "Record successful public deployment verification [skip ci]"
+          git push
