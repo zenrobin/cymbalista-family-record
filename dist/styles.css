@@ -517,6 +517,9 @@ footer strong { font-size: 21px; }
 
 /* The perspective chooser is the front door, not a marketing overlay. */
 .perspective-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   width: min(980px, calc(100% - 36px));
   max-height: calc(100vh - 36px);
   margin: auto;
