@@ -12,6 +12,16 @@ Serve the `dist/` directory with any static file server. There is no build step.
 
 The included `vercel.json` configures Vercel to serve `dist/` as a static site. The supplied narrative and family-tree exports are intentionally excluded because they contain living-family information.
 
+## Reader perspectives
+
+The site asks each reader where they enter the family, then changes the opening narrative, branch order, documentary emphasis, and roots guidance. Six deterministic views are currently defined in `dist/app.js`. Perspective never changes the underlying people, relationships, evidence labels, sources, or privacy rules.
+
+Share a view by adding a query parameter such as `?view=richard`, `?view=robin`, `?view=nolan`, `?view=april`, `?view=cymbalista`, or `?view=israel`.
+
+### Direction for a future data-backed version
+
+Keep the canonical family graph and claim-level citations as the source of truth. A relationship engine can calculate kinship and relevant branches for any identified reader. Narrative templates—or an LLM constrained to the retrieved, cited claims—can then phrase the story from that reader's position. Contributions should enter as proposed claims with provenance and review status; they should never silently overwrite accepted facts.
+
 ## Corrections and additions
 
 Use the [family record correction form](https://github.com/zenrobin/cymbalista-family-record/issues/new?template=family-record-correction.yml). Accepted changes should preserve the earlier claim, identify its evidence, and add a dated entry to `dist/data/revisions.json`.
