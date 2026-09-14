@@ -1,0 +1,39 @@
+name: Bootstrap published family record
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/bootstrap-family-record.yml
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover the published public-safe site
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://cymbalista-family-archive.robin861416.chatgpt.site"
+          mkdir -p dist/assets/portraits dist/data
+          curl -fsSL "$base/" -o dist/index.html
+          curl -fsSL "$base/app.js" -o dist/app.js
+          curl -fsSL "$base/styles.css" -o dist/styles.css
+          curl -fsSL "$base/data/contribution-schema.json" -o dist/data/contribution-schema.json
+          curl -fsSL "$base/data/revisions.json" -o dist/data/revisions.json
+          for portrait in barbara benjamin dorothy joseph-sidney joseph; do
+            curl -fsSL "$base/assets/portraits/$portrait.webp" -o "dist/assets/portraits/$portrait.webp"
+          done
+      - name: Commit recovered site
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist
+          git commit -m "Import public family record site [skip ci]"
+          git push
