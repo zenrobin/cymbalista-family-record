@@ -1,5 +1,17 @@
 [
   {
+    "edition": "05",
+    "date": "2026-09-14",
+    "changes": [
+      "Raised small body, card, evidence, source, and navigation text for readers aged 50 and older",
+      "Increased color contrast and added stronger keyboard-focus indicators",
+      "Added a first-visit perspective chooser for Richard, Robin, Nolan or Norah, April, Cymbalista or Simblist relatives, and Israel or Apostol relatives",
+      "Made branch order, documentary emphasis, opening narrative, and roots guidance respond to the selected reader",
+      "Kept names, sources, privacy limits, and confidence labels fixed across every perspective",
+      "Added shareable perspective URLs and local preference memory"
+    ]
+  },
+  {
     "edition": "04",
     "date": "2026-09-14",
     "changes": [
