@@ -1,37 +1,29 @@
-# Cymbalista–Israel Family Record
+# The Family Record
 
-A documentary, public-safe reconstruction of the Cymbalista / Simblist / Cymbalist / Symberlist / Johnson and Israel / Parajas / Apostol family histories.
+An evidence-led, perspective-based documentary archive for the Cymbalista, Johnson, Israel, Parajas, Apostol, and connected families.
 
-The record distinguishes verified sources, supplied family material, reconstruction, open questions, and historical context. It does not treat every inherited tree entry as established fact.
+## How it works
 
-## Local preview
+The public page introduces the project without exposing living-family information. Approved family members enter through a one-time email link. The complete record—including people, relationships, narrative, evidence labels, research sources, and private source files—is loaded from a row-level-secured database only after access is verified.
 
-Serve the `dist/` directory with any static file server. There is no build step.
+The reader can choose a point of view. That choice changes the opening, branch names and order, story framing, family route, faith discussion, and roots-to-visit guidance. It does not change claims or evidence status.
 
-## Publishing
+## Access and contributions
 
-The included `vercel.json` configures Vercel to serve `dist/` as a static site. The supplied narrative and family-tree exports are intentionally excluded because they contain living-family information.
-
-## Reader perspectives
-
-The site asks each reader where they enter the family, then changes the opening narrative, branch order, documentary emphasis, and roots guidance. Six deterministic views are currently defined in `dist/app.js`. Perspective never changes the underlying people, relationships, evidence labels, sources, or privacy rules.
-
-Share a view by adding a query parameter such as `?view=richard`, `?view=robin`, `?view=nolan`, `?view=april`, `?view=cymbalista`, or `?view=israel`.
-
-### Direction for a future data-backed version
-
-Keep the canonical family graph and claim-level citations as the source of truth. A relationship engine can calculate kinship and relevant branches for any identified reader. Narrative templates—or an LLM constrained to the retrieved, cited claims—can then phrase the story from that reader's position. Contributions should enter as proposed claims with provenance and review status; they should never silently overwrite accepted facts.
-
-## Corrections and additions
-
-Use the [family record correction form](https://github.com/zenrobin/cymbalista-family-record/issues/new?template=family-record-correction.yml). Accepted changes should preserve the earlier claim, identify its evidence, and add a dated entry to `dist/data/revisions.json`.
-
-Because this repository is public, never upload unredacted records, exact dates, addresses, or photographs concerning living people. Describe private evidence and arrange a secure review with the family editor.
+- Approved emails receive a passwordless, one-use sign-in link.
+- New readers submit their name, email, connection, and reason for access.
+- A family administrator reviews requests and can approve and send a link.
+- Family members can submit additions or corrections as proposals with provenance.
+- Proposals never silently overwrite the accepted record.
 
 ## Evidence labels
 
 - **Verified:** independently checked institutional or first-hand source.
-- **Source-backed:** shown in supplied family material; underlying record not yet independently inspected.
-- **Reconstruction:** a reasoned conclusion from family material, DNA accounts, or linked clues.
+- **Source-backed:** present in supplied family material; the underlying record has not necessarily been inspected independently.
+- **Family reconstruction:** a reasoned conclusion from linked clues, testimony, or DNA accounts.
 - **Open question:** incomplete, ambiguous, or conjectural.
 - **Historical context:** verified setting that does not prove an individual family claim.
+
+## Local preview and publishing
+
+Serve `dist/` with a static web server. `vercel.json` publishes only that directory. Private seed material, source files, and database scripts are intentionally ignored by both Git and Vercel.

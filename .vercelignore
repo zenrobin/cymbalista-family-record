@@ -1,7 +1,6 @@
+.git/
 research/
 private-source-archive/
-dist/assets/extracted/
 scripts/
 supabase/
 public-check.png
-.DS_Store

@@ -1,221 +1,210 @@
-(() => {
-  "use strict";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.4";
 
-  document.documentElement.classList.add("js");
+const SUPABASE_URL = "https://lmqccqufyhtbdxafzsjj.supabase.co";
+const SUPABASE_KEY = "sb_publishable_K0tN-7m59l6vl_nLVMb7FQ_jiLAo9bI";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } });
 
-  const perspectives = {
-    richard: {
-      name: "Richard Johnson",
-      openingLabel: "Richard’s view",
-      title: "The Cymbalista line<br>that became Johnson.",
-      standfirst: "For Richard, this story begins with the parents and grandparents behind the Johnson name, then follows what their history means for the generations after him.",
-      context: "April’s branch remains part of the shared record because it is the maternal inheritance of Richard’s grandchildren. It appears later in this view, not with less evidentiary weight.",
-      treeTitle: "Richard’s ancestors first, then the family after him",
-      treeIntro: "The Cymbalista–Johnson branch leads this reading. Descendant and in-law branches follow. Lines indicate relationship, while each label states the strength of the evidence.",
-      storyIntro: "From Richard’s position, the central arc is a Jewish family connection obscured by migration and later reconstructed.",
-      readerLabel: "From Richard’s point of view",
-      readerNote: "The closest historical route runs backward through the Johnson, Simblist, and Cymbalista names toward London, Warsaw, and Przysucha. April’s line matters here through Nolan and Norah.",
-      treeOrder: ["johnson", "wider", "current", "april"],
-      storyOrder: ["rediscovery", "migration", "teaching", "music", "april"],
-      currentTitle: "Richard’s descendants in the present record",
-      currentIntro: "Robin’s marriages and children show how Richard’s branch continues.",
-      aprilStoryTitle: "A second ancestry enters Richard’s descendants"
-    },
-    robin: {
-      name: "Robin Johnson",
-      openingLabel: "Robin’s view",
-      title: "The histories Robin inherited—<br>and passes on.",
-      standfirst: "Robin stands between the Cymbalista–Johnson past and the living family recorded here. His view begins with his ancestry, then follows the relationships through which two family histories reach Nolan and Norah.",
-      context: "April is Robin’s former wife and Nolan and Norah’s mother. Adi is Robin’s current wife as of 22 August 2026; Robin and Adi have no children together.",
-      treeTitle: "Robin’s ancestry, immediate family, and connected branches",
-      treeIntro: "The order follows Robin’s closest relationships. Every claim keeps the same evidence label regardless of where it appears.",
-      storyIntro: "For Robin, the record connects rediscovered ancestry with the responsibility to preserve both sides of his children’s history.",
-      readerLabel: "From Robin’s point of view",
-      readerNote: "The Johnson and Cymbalista route is Robin’s ancestry. The Israel–Parajas–Apostol route enters his family through April and belongs fully to Nolan and Norah.",
-      treeOrder: ["johnson", "current", "april", "wider"],
-      storyOrder: ["rediscovery", "migration", "music", "teaching", "april"],
-      currentTitle: "Robin’s immediate family",
-      currentIntro: "Former and current marriages are recorded without collapsing distinct relationships.",
-      aprilStoryTitle: "A second migration history enters Robin’s family"
-    },
-    nolan: {
-      name: "Nolan or Norah",
-      openingLabel: "A child’s view of both parental lines",
-      title: "Two family lines,<br>kept in one record.",
-      standfirst: "This is the ancestry Nolan and Norah inherit through both parents: Robin’s Cymbalista–Johnson line and April’s Israel–Parajas–Apostol line.",
-      context: "Neither parental line is treated as an appendix. Records remain distinct from reconstruction, and uncertainty is shown because an honest question is more useful than a confident mistake.",
-      treeTitle: "Two parental lines meet in one immediate family",
-      treeIntro: "The present family comes first, followed by each parental branch. Lines indicate descent, not certainty; open each card for the current evidence.",
-      storyIntro: "From Nolan or Norah’s position, the distinctive story is the meeting of Jewish European and Filipino family histories.",
-      readerLabel: "From Nolan or Norah’s point of view",
-      readerNote: "The roots in Poland, England, the United States, Australia, and the Philippines all belong in this view. Family history can explain inheritance without prescribing belief.",
-      treeOrder: ["current", "johnson", "april", "wider"],
-      storyOrder: ["music", "teaching", "migration", "rediscovery", "april"],
-      currentTitle: "Nolan and Norah’s immediate family",
-      currentIntro: "The two parental lines meet here.",
-      aprilStoryTitle: "The children inherit a second migration history"
-    },
-    april: {
-      name: "April",
-      openingLabel: "April’s view",
-      title: "The Israel, Parajas,<br>and Apostol inheritance.",
-      standfirst: "April’s view begins with the Filipino family recorded in her supplied chart: the Israel, Parajas, Apostol, Cruz, Tiozon, and related lines.",
-      context: "Her former marriage to Robin connects this ancestry to Nolan and Norah. The Cymbalista–Johnson line remains their paternal history and follows later in this reading.",
-      treeTitle: "April’s ancestry first, then the family connections",
-      treeIntro: "The Philippine branch leads this view. Supplied-chart claims, public-index matches, and open questions remain visibly distinct.",
-      storyIntro: "For April, the unfinished work is as important as the known names: Pangasinan is a strong lead, while towns, parishes, customs, and oral histories still need documentation.",
-      readerLabel: "From April’s point of view",
-      readerNote: "Pangasinan is the clearest place to begin, but it is a province rather than a complete route. Birth, marriage, baptismal, burial, and family interview evidence can make this branch more specific.",
-      treeOrder: ["april", "current", "johnson", "wider"],
-      storyOrder: ["april", "migration", "rediscovery", "music", "teaching"],
-      currentTitle: "April’s children and co-parenting family",
-      currentIntro: "April and Robin are former spouses and the parents of Nolan and Norah.",
-      aprilStoryTitle: "The Israel–Parajas–Apostol inheritance"
-    },
-    cymbalista: {
-      name: "Cymbalista or Simblist relative",
-      openingLabel: "The Cymbalista–Simblist family view",
-      title: "A family name reshaped<br>across borders.",
-      standfirst: "This view follows the Cymbalista name and its related spellings through Poland, London, the United States, Australia, and Brazil.",
-      context: "Surname similarity alone is not proof. The branch register separates documented public lives from identity chains and relationships that still need direct records.",
-      treeTitle: "The wider surname branches, then the Johnson line",
-      treeIntro: "The broad Cymbalista–Simblist network comes first, followed by the branch reaching Robin and the living family.",
-      storyIntro: "From a wider relative’s position, migration, spelling change, religious community, and the recovery of separated branches are the recurring themes.",
-      readerLabel: "From a Cymbalista or Simblist relative’s point of view",
-      readerNote: "Przysucha, Warsaw, London, Boston, Sydney, and São Paulo form the main research geography. A remote cousin may be able to strengthen a weak link without sharing living-family details publicly.",
-      treeOrder: ["wider", "johnson", "current", "april"],
-      storyOrder: ["migration", "music", "teaching", "rediscovery", "april"],
-      currentTitle: "How this branch reaches the living family",
-      currentIntro: "Robin, Nolan, and Norah connect the older surname history to the present record.",
-      aprilStoryTitle: "A Filipino line joins the recorded family"
-    },
-    israel: {
-      name: "Israel or Apostol relative",
-      openingLabel: "The Israel–Apostol family view",
-      title: "A Filipino family line,<br>ready for deeper research.",
-      standfirst: "This view begins with Benjamin Parajas Israel, Asuncion Israel, and the Israel, Parajas, Apostol, Cruz, Tiozon, and connected surnames preserved in April’s chart.",
-      context: "The record has promising public-index matches and a strong Pangasinan lead, but many town-level relationships, dates, faith practices, and traditions still require records or attributed interviews.",
-      treeTitle: "The Philippine branch first, with its open questions intact",
-      treeIntro: "April’s ancestry leads this reading. The living-family connection and the children’s paternal branch follow without changing their evidence status.",
-      storyIntro: "For an Israel or Apostol relative, the most valuable next chapter may come from local records, photographs, and memories not yet represented here.",
-      readerLabel: "From an Israel or Apostol relative’s point of view",
-      readerNote: "Pangasinan is the leading destination and research area. The next useful contribution is a specific municipality, parish, cemetery, document, or attributed family memory.",
-      treeOrder: ["april", "current", "johnson", "wider"],
-      storyOrder: ["april", "migration", "rediscovery", "teaching", "music"],
-      currentTitle: "How this branch reaches Nolan and Norah",
-      currentIntro: "April and Robin are former spouses and the parents of Nolan and Norah.",
-      aprilStoryTitle: "The Israel–Parajas–Apostol inheritance"
-    }
-  };
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const esc = (value = "") => String(value).replace(/[&<>'"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[c]));
+const titleCase = value => String(value || "").replaceAll("-", " ").replace(/\b\w/g, c => c.toUpperCase());
+const portraitUrl = person => person?.portrait_base64 ? `data:${person.portrait_mime || "image/webp"};base64,${person.portrait_base64}` : "";
+const evidenceName = value => ({ "verified": "Verified", "source-backed": "Source-backed", "reconstruction": "Family reconstruction", "open-question": "Open question", "historical-context": "Historical context" }[value] || titleCase(value));
+const badge = value => `<span class="evidence" data-evidence="${esc(value)}">${esc(evidenceName(value))}</span>`;
+const state = { session: null, member: null, people: [], relationships: [], stories: [], perspectives: [], sources: [], research: [], archive: [], archiveLoaded: false, pov: null };
 
-  const gate = document.getElementById("perspective-gate");
-  const changeButton = document.getElementById("change-perspective");
-  const tree = document.getElementById("tree");
-  const stories = document.querySelector("#story .stories");
-  const storyHeading = document.querySelector("#story .section-head > p:last-child");
-  const currentHeading = document.querySelector("#current-branch h3");
-  const currentIntro = document.querySelector("#current-branch header p");
-  const aprilStoryHeading = document.querySelector('[data-story="april"] h3');
+function showToast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(showToast.timer); showToast.timer = setTimeout(() => node.classList.remove("show"), 4200); }
+function setStatus(id, message, error = false) { const node = $(id); if (!node) return; node.textContent = message; node.style.color = error ? "var(--rust)" : "var(--green)"; }
+function initials(name = "?") { return name.split(/\s+/).filter(Boolean).slice(0, 2).map(x => x[0]).join("").toUpperCase(); }
+function personImage(person, className = "") { const url = portraitUrl(person); return url ? `<img class="${className}" src="${url}" alt="Portrait of ${esc(person.display_name)}">` : `<span class="portrait-initial ${className}" aria-hidden="true">${esc(initials(person?.display_name))}</span>`; }
+function currentPov() { return state.perspectives.find(p => p.perspective_key === state.pov) || state.perspectives[0]; }
+function personByKey(key) { return state.people.find(p => p.person_key === key); }
 
-  function setText(id, value) {
-    const node = document.getElementById(id);
-    if (node) node.textContent = value;
+function openAccess(panel = "signin") { const dialog = $("#access-dialog"); switchPanel(panel); if (!dialog.open) dialog.showModal(); }
+function switchPanel(panel) { $("#signin-panel").hidden = panel !== "signin"; $("#request-panel").hidden = panel !== "request"; }
+$$('[data-open]').forEach(button => button.addEventListener("click", () => openAccess(button.dataset.open)));
+$("#open-signin").addEventListener("click", () => openAccess("signin"));
+$$('[data-switch]').forEach(button => button.addEventListener("click", () => switchPanel(button.dataset.switch)));
+$$('.dialog-close').forEach(button => button.addEventListener("click", () => button.closest("dialog").close()));
+$$('dialog').forEach(dialog => dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); }));
+
+$("#signin-form").addEventListener("submit", async event => {
+  event.preventDefault(); const form = event.currentTarget; const email = new FormData(form).get("email").trim().toLowerCase();
+  setStatus("#signin-status", "Sending your secure link…");
+  const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: `${location.origin}/`, shouldCreateUser: true } });
+  if (error) return setStatus("#signin-status", error.message, true);
+  setStatus("#signin-status", "Check your email. The link works once and returns you here."); form.reset();
+});
+
+$("#request-form").addEventListener("submit", async event => {
+  event.preventDefault(); const form = event.currentTarget; const data = new FormData(form);
+  setStatus("#request-status", "Sending your request…");
+  const payload = { name: data.get("name").trim(), email: data.get("email").trim().toLowerCase(), reason: data.get("reason").trim(), status: "pending" };
+  const { error } = await supabase.from("access_requests").insert(payload);
+  if (error) return setStatus("#request-status", error.message, true);
+  setStatus("#request-status", "Request received. A family administrator will review it."); form.reset();
+});
+
+$("#signout").addEventListener("click", async () => { await supabase.auth.signOut(); location.assign("/"); });
+
+async function initializeSession(session) {
+  state.session = session;
+  if (!session) return showPublic();
+  const email = session.user.email?.toLowerCase();
+  const { data: member, error } = await supabase.from("family_members").select("*").eq("email", email).maybeSingle();
+  if (error || !member || member.status !== "approved") {
+    await supabase.auth.signOut(); showPublic(); openAccess("request"); setStatus("#request-status", "That email is not yet approved. Please request family access.", true); return;
   }
+  state.member = member; await loadRecord(); showPrivate();
+}
 
-  function safeStorageGet() {
-    try { return window.localStorage.getItem("family-record-perspective"); }
-    catch (_) { return null; }
+function showPublic() { $("#public-home").hidden = false; $("#private-app").hidden = true; $("#open-signin").hidden = false; $("#signout").hidden = true; $("#session-label").hidden = true; }
+function showPrivate() { $("#public-home").hidden = true; $("#private-app").hidden = false; $("#open-signin").hidden = true; $("#signout").hidden = false; $("#session-label").hidden = false; $("#session-label").textContent = state.member.display_name; $("#access-dialog").open && $("#access-dialog").close(); }
+
+async function loadRecord() {
+  const requests = [
+    supabase.from("family_people").select("*").order("sort_order"),
+    supabase.from("family_relationships").select("*"),
+    supabase.from("family_stories").select("*").order("sort_order"),
+    supabase.from("family_perspectives").select("*").order("sort_order"),
+    supabase.from("source_files").select("source_key,title,filename,mime_type,byte_size,sha256,chunk_count,description,source_date").order("created_at"),
+    supabase.from("research_sources").select("*").order("sort_order")
+  ];
+  const [people, relationships, stories, perspectives, sources, research] = await Promise.all(requests);
+  const failed = [people, relationships, stories, perspectives, sources, research].find(result => result.error);
+  if (failed) throw failed.error;
+  Object.assign(state, { people: people.data, relationships: relationships.data, stories: stories.data, perspectives: perspectives.data, sources: sources.data, research: research.data });
+  const saved = localStorage.getItem("family-record-pov");
+  const defaultPov = state.perspectives.find(p => p.person_key === state.member.tree_person_key)?.perspective_key || "robin";
+  state.pov = state.perspectives.some(p => p.perspective_key === saved) ? saved : defaultPov;
+  populateControls(); renderPerspective(); renderSources(); renderResearch(); bindContributions();
+  if (state.member.role === "admin") { $("#admin").hidden = false; $("#admin-link").hidden = false; await loadAccessRequests(); }
+}
+
+function populateControls() {
+  $("#perspective-select").innerHTML = state.perspectives.map(p => `<option value="${esc(p.perspective_key)}">${esc(p.display_name)}</option>`).join("");
+  $("#perspective-select").value = state.pov;
+  $("#perspective-select").addEventListener("change", event => { state.pov = event.target.value; localStorage.setItem("family-record-pov", state.pov); renderPerspective(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+  $("#proposal-person").insertAdjacentHTML("beforeend", state.people.map(p => `<option value="${esc(p.person_key)}">${esc(p.display_name)}</option>`).join(""));
+}
+
+function renderPerspective() {
+  const pov = currentPov(); const config = pov.config || {}; const focus = personByKey(pov.person_key);
+  $("#pov-kicker").textContent = `The family record from ${pov.display_name}’s point of view`;
+  $("#pov-title").textContent = config.opening_title || `The family from ${pov.display_name}’s point of view`;
+  $("#pov-lede").textContent = config.lede || "The same evidence, approached through a different relationship to the family.";
+  $("#focus-portrait").innerHTML = focus ? personImage(focus) : `<div class="portrait-initial">${esc(initials(pov.display_name))}</div>`;
+  $("#people-heading").textContent = `${pov.display_name}’s family, branch by branch`;
+  $("#places-intro").textContent = config.places_intro || "Places are research destinations, not claims of belonging by themselves.";
+  $("#faith-title").textContent = config.faith_title || "Religious life, family practice, and the questions still open";
+  renderConnection(pov); renderStories(pov); renderBranches(pov); renderJourney(pov); renderFaith(pov);
+}
+
+function buildGraph() {
+  const graph = new Map(); const add = (a, b, type) => { if (!graph.has(a)) graph.set(a, []); graph.get(a).push({ key: b, type }); };
+  state.relationships.forEach(r => { add(r.from_person_key, r.to_person_key, r.relationship_type); add(r.to_person_key, r.from_person_key, r.relationship_type); }); return graph;
+}
+function pathBetween(start, end) {
+  if (!start || !end) return []; const graph = buildGraph(); const queue = [[start, []]]; const seen = new Set([start]);
+  while (queue.length) { const [key, path] = queue.shift(); if (key === end) return path.concat({ key }); for (const next of graph.get(key) || []) if (!seen.has(next.key)) { seen.add(next.key); queue.push([next.key, path.concat({ key, via: next.type })]); } } return [];
+}
+function renderConnection(pov) {
+  const target = pov.person_key; if (!target) { $("#connection").innerHTML = `<p><strong>This is a branch view.</strong> It begins with the wider surname family and follows documented links toward the present.</p>`; return; }
+  const anchor = state.member.tree_person_key; const path = pathBetween(anchor, target);
+  if (!path.length || anchor === target) { $("#connection").innerHTML = `<p><strong>This telling begins with ${esc(pov.display_name)}.</strong> Every branch title and story order below is phrased from that position.</p>`; return; }
+  $("#connection").innerHTML = `<div class="connection-path"><strong>Your route to this viewpoint:</strong> ${path.map((step, i) => `${i ? `<i>— ${esc(titleCase(path[i-1].via || "family"))} →</i>` : ""}<span>${esc(personByKey(step.key)?.display_name || step.key)}</span>`).join(" ")}</div>`;
+}
+
+function storyFrame(story, pov) {
+  const name = pov.display_name; const key = story.story_key;
+  if (key === "april-branch") return pov.perspective_key === "april" ? "This is the family line April brings forward." : pov.perspective_key === "nolan" || pov.perspective_key === "norah" ? `This is ${name}’s maternal inheritance, not a side note.` : `From ${name}’s position, this branch enters through April and remains distinct in the evidence.`;
+  if (key === "rediscovery") return `For ${name}, this chapter explains how the Johnson and Cymbalista identities are connected—and why that link remains labeled as a reconstruction.`;
+  if (key === "migration") return `From ${name}’s place in the family, migration is the route by which names, livelihoods, and memories changed.`;
+  if (key === "music") return `This is one of the family’s most distinctive inheritances: a name and oral record associated with musicianship, with limits on what the surviving evidence can prove.`;
+  if (key === "teacher") return `This chapter follows remembered Jewish learning and the reputation of Rachmil, while keeping family testimony distinct from an independently inspected record.`;
+  return "";
+}
+function renderStories(pov) {
+  const order = pov.config?.story_order || []; const featured = order.map(key => state.stories.find(s => s.story_key === key)).filter(Boolean);
+  $("#featured-stories").innerHTML = featured.map((story, index) => `<article class="story-card"><div class="story-number">${String(index + 1).padStart(2, "0")}</div><div><p class="eyebrow">${esc(storyFrame(story, pov))}</p><h3>${esc(story.title)}</h3>${badge(story.evidence_label)}<div class="story-body"><p>${esc(story.body)}</p></div><p class="source-note">Present basis: ${esc(story.source_note || "Family record")}</p></div></article>`).join("");
+  const chapters = state.stories.filter(s => s.metadata?.full_chapter);
+  $("#full-narrative").innerHTML = chapters.map((story, i) => `<article class="chapter"><p class="eyebrow">Chapter ${i + 1} · ${esc(pov.display_name)}’s reading</p><h3>${esc(story.title)}</h3>${badge(story.evidence_label)}<div class="story-body"><p>${esc(story.body)}</p></div><p class="source-note">${esc(story.source_note || "")}</p></article>`).join("");
+}
+
+function renderBranches(pov) {
+  const config = pov.config || {}; const all = [...new Set(state.people.map(p => p.branch))]; const ordered = [...(config.branch_order || []), ...all.filter(x => !(config.branch_order || []).includes(x))];
+  $("#branch-sections").innerHTML = ordered.map(branch => { const people = state.people.filter(p => p.branch === branch); if (!people.length) return ""; const title = config.branch_titles?.[branch] || `${pov.display_name} and the ${titleCase(branch)} branch`; return `<section class="branch-group"><header class="branch-head"><h3>${esc(title)}</h3><span>${people.length} ${people.length === 1 ? "person" : "people"}</span></header><div class="people-grid">${people.map(personCard).join("")}</div></section>`; }).join("");
+  $$(".person-card").forEach(button => button.addEventListener("click", () => openPerson(button.dataset.person)));
+}
+function personCard(person) { const life = [person.birth_text && `Born ${person.birth_text}`, person.death_text && `Died ${person.death_text}`].filter(Boolean).join(" · "); return `<button class="person-card" data-person="${esc(person.person_key)}">${portraitUrl(person) ? personImage(person, "person-thumb") : `<span class="person-thumb">${esc(initials(person.display_name))}</span>`}<span><strong>${esc(person.display_name)}</strong><small>${esc(life || (person.living ? "Living family member" : "Dates not recorded"))}</small>${badge(person.evidence_label)}</span></button>`; }
+function relationSentence(r, person) { const otherKey = r.from_person_key === person.person_key ? r.to_person_key : r.from_person_key; const other = personByKey(otherKey); return `${titleCase(r.relationship_type)}: ${other?.display_name || otherKey}${r.start_text ? ` (${r.start_text})` : ""}`; }
+function openPerson(key) {
+  const person = personByKey(key); if (!person) return; const relationships = state.relationships.filter(r => r.from_person_key === key || r.to_person_key === key); const metadata = person.metadata || {};
+  const metaItems = Object.entries(metadata).filter(([, value]) => value !== null && value !== "" && (!Array.isArray(value) || value.length)).map(([label, value]) => `<li><strong>${esc(titleCase(label))}:</strong> ${esc(Array.isArray(value) ? value.join(", ") : typeof value === "object" ? JSON.stringify(value) : value)}</li>`).join("");
+  $("#person-detail").innerHTML = `<div class="person-profile"><div>${personImage(person)}</div><div><p class="eyebrow">${esc(titleCase(person.branch))} branch</p><h2>${esc(person.display_name)}</h2>${badge(person.evidence_label)}<ul class="facts">${person.birth_text ? `<li><strong>Born:</strong> ${esc(person.birth_text)}</li>` : ""}${person.death_text ? `<li><strong>Died:</strong> ${esc(person.death_text)}</li>` : ""}${person.summary ? `<li>${esc(person.summary)}</li>` : ""}${relationships.map(r => `<li>${esc(relationSentence(r, person))} ${badge(r.evidence_label)}</li>`).join("")}${metaItems}</ul></div></div>`;
+  $("#person-dialog").showModal();
+}
+
+function renderJourney(pov) {
+  const includesPhilippines = ["nolan", "norah", "april", "israel", "robin", "richard", "adi"].includes(pov.perspective_key);
+  const european = [{ place: "Przysucha", note: "The earliest named Cymbalista setting; visit as a research place, not as proof of every claimed link." }, { place: "Warsaw", note: "The family narrative places Rachmil, Fajga, and their children here before London." }, { place: "London’s East End", note: "Addresses, work, poor-law records, cemeteries, and changing surnames converge here." }, { place: "Massachusetts", note: "The Johnson identity, Joseph’s business life, and later generations take shape here." }];
+  const filipino = [{ place: "Pangasinan", note: "The strongest Philippine lead. Exact municipalities, parishes, homes, and cemeteries remain open research questions." }];
+  let stops = pov.perspective_key === "april" || pov.perspective_key === "israel" ? [...filipino, ...european] : [...european, ...(includesPhilippines ? filipino : [])];
+  $("#journey").innerHTML = stops.map((stop, i) => `<article class="place-stop"><span>${String(i + 1).padStart(2, "0")}</span><h3>${esc(stop.place)}</h3><p>${esc(stop.note)}</p></article>`).join("");
+}
+function renderFaith(pov) {
+  const isAprilFirst = ["april", "israel"].includes(pov.perspective_key); const name = pov.display_name;
+  const jewish = `The Cymbalista record is unmistakably Jewish in setting: Torah teaching is attributed to Rachmil; Whitechapel’s Jewish immigrant world shaped the London chapter; and burial at Edmonton Federation Cemetery anchors the family in a documented communal landscape. The material does not yet justify assigning every person a precise level of observance or a specific Hasidic affiliation.`;
+  const filipino = `The supplied Filipino chart names families and generations, but it does not yet document the household’s faith practice, feast days, parish life, language, recipes, or rites of passage. For ${name}, those absences are invitations for attributed memories and records—not permission to guess.`;
+  $("#faith-copy").innerHTML = `<p>${esc(isAprilFirst ? filipino : jewish)}</p><p>${esc(isAprilFirst ? jewish : filipino)}</p><p><strong>Tradition worth preserving:</strong> the repeating passage of names—Feiga Pesi into Fanny, Phyllis, and Faye—is a concrete example of family memory surviving migration in altered form.</p>`;
+}
+
+function renderSources() {
+  $("#source-files").innerHTML = state.sources.map(source => `<article class="source-card"><p class="eyebrow">Original ${esc(source.mime_type.includes("pdf") ? "PDF" : "document")}</p><h3>${esc(source.title)}</h3><p>${esc(source.description || "")}</p><p>${Number(source.byte_size || 0).toLocaleString()} bytes · SHA-256 preserved</p><button class="button button-secondary" data-download="${esc(source.source_key)}">Download original</button></article>`).join("");
+  $$('[data-download]').forEach(button => button.addEventListener("click", () => downloadSource(button.dataset.download, button)));
+  $("#load-archive").addEventListener("click", loadArchive);
+  $("#archive-search").addEventListener("input", renderArchive);
+}
+async function downloadSource(key, button) {
+  const source = state.sources.find(s => s.source_key === key); button.disabled = true; button.textContent = "Rebuilding file…";
+  const { data, error } = await supabase.from("source_file_chunks").select("chunk_number,chunk_base64").eq("source_key", key).order("chunk_number");
+  if (error || !data?.length) { button.disabled = false; button.textContent = "Download original"; return showToast(error?.message || "Source file is unavailable."); }
+  const binary = atob(data.map(c => c.chunk_base64).join("")); const bytes = Uint8Array.from(binary, c => c.charCodeAt(0)); const url = URL.createObjectURL(new Blob([bytes], { type: source.mime_type })); const link = document.createElement("a"); link.href = url; link.download = source.filename; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); button.disabled = false; button.textContent = "Download original";
+}
+async function loadArchive() {
+  const button = $("#load-archive"); button.disabled = true; button.textContent = "Loading private images…";
+  const { data, error } = await supabase.from("archive_images").select("*").order("sort_order");
+  if (error) { button.disabled = false; button.textContent = "Try again"; return showToast(error.message); }
+  state.archive = data || []; state.archiveLoaded = true; button.textContent = `${state.archive.length} archive images loaded`; renderArchive();
+}
+function renderArchive() { if (!state.archiveLoaded) return; const term = $("#archive-search").value.trim().toLowerCase(); const filtered = state.archive.filter(item => !term || `${item.title} ${item.transcript || ""}`.toLowerCase().includes(term)); $("#archive-grid").innerHTML = filtered.slice(0, 180).map(item => `<figure class="archive-item"><img loading="lazy" src="data:${esc(item.image_mime)};base64,${item.image_base64}" alt="${esc(item.title)}"><figcaption><strong>${esc(item.title)}</strong>${item.transcript ? `<br>${esc(item.transcript.slice(0, 180))}` : ""}</figcaption></figure>`).join("") || `<p>No matching archive images.</p>`; }
+function renderResearch() { $("#research-list").innerHTML = state.research.map(source => `<article class="research-item"><div>${badge(source.verification_status)}</div><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a><p>${esc(source.citation || source.notes || "")}</p></article>`).join(""); }
+
+let proposalBound = false;
+function bindContributions() { if (proposalBound) return; proposalBound = true; $("#proposal-form").addEventListener("submit", async event => { event.preventDefault(); const form = event.currentTarget; const data = new FormData(form); setStatus("#proposal-status", "Submitting…"); const payload = { submitted_by: state.session.user.id, person_key: data.get("person_key") || null, proposal_type: data.get("proposal_type"), proposed_change: data.get("proposed_change").trim(), source_description: data.get("source_description").trim() || null, status: "pending" }; const { error } = await supabase.from("change_proposals").insert(payload); if (error) return setStatus("#proposal-status", error.message, true); form.reset(); setStatus("#proposal-status", "Submitted with your identity and source note for family review."); }); }
+
+async function loadAccessRequests() {
+  const { data, error } = await supabase.from("access_requests").select("*").eq("status", "pending").order("requested_at", { ascending: false });
+  if (error) return $("#request-list").textContent = error.message;
+  $("#request-list").innerHTML = data.length ? data.map(request => `<article class="request-card"><div><h3>${esc(request.name)}</h3><p><a href="mailto:${esc(request.email)}">${esc(request.email)}</a></p><p>${esc(request.reason)}</p><small>${new Date(request.requested_at).toLocaleString()}</small></div><div class="request-actions"><button class="button button-primary" data-approve="${esc(request.id)}">Approve & send link</button><button class="button button-secondary" data-decline="${esc(request.id)}">Decline</button></div></article>`).join("") : `<p>No pending requests.</p>`;
+  $$('[data-approve]').forEach(button => button.addEventListener("click", () => reviewRequest(button.dataset.approve, true, button, data)));
+  $$('[data-decline]').forEach(button => button.addEventListener("click", () => reviewRequest(button.dataset.decline, false, button, data)));
+}
+async function reviewRequest(id, approve, button, requests) {
+  const request = requests.find(item => item.id === id); if (!request) return; button.disabled = true;
+  if (approve) {
+    const email = request.email.trim().toLowerCase(); const { data: existing, error: lookupError } = await supabase.from("family_members").select("id").eq("email", email).maybeSingle();
+    if (lookupError) return showToast(lookupError.message);
+    const memberPayload = { email, display_name: request.name, role: "member", status: "approved", approved_at: new Date().toISOString(), approved_by: state.session.user.id };
+    const write = existing ? await supabase.from("family_members").update(memberPayload).eq("id", existing.id) : await supabase.from("family_members").insert(memberPayload);
+    if (write.error) { button.disabled = false; return showToast(write.error.message); }
+    const { error: mailError } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: `${location.origin}/`, shouldCreateUser: true } });
+    if (mailError) { button.disabled = false; return showToast(`Approved, but the email could not be sent: ${mailError.message}`); }
   }
+  const { error } = await supabase.from("access_requests").update({ status: approve ? "approved" : "declined", reviewed_at: new Date().toISOString(), reviewed_by: state.session.user.id }).eq("id", id);
+  if (error) { button.disabled = false; return showToast(error.message); }
+  showToast(approve ? "Approved. A one-time link was sent." : "Request declined."); await loadAccessRequests();
+}
 
-  function safeStorageSet(value) {
-    try { window.localStorage.setItem("family-record-perspective", value); }
-    catch (_) { /* The view still works when storage is unavailable. */ }
-  }
-
-  function reorder(container, order, attribute) {
-    if (!container) return;
-    order.forEach((key) => {
-      const node = container.querySelector('[' + attribute + '="' + key + '"]');
-      if (node) container.appendChild(node);
-    });
-  }
-
-  function renumber(selector) {
-    document.querySelectorAll(selector).forEach((node, index) => {
-      node.textContent = String(index + 1).padStart(2, "0");
-    });
-  }
-
-  function openGate() {
-    if (!gate) return;
-    if (typeof gate.showModal === "function") {
-      if (!gate.open) gate.showModal();
-    } else {
-      gate.setAttribute("open", "");
-    }
-  }
-
-  function closeGate() {
-    if (!gate) return;
-    if (typeof gate.close === "function" && gate.open) gate.close();
-    else gate.removeAttribute("open");
-  }
-
-  function applyPerspective(key, options = {}) {
-    const view = perspectives[key];
-    if (!view) return;
-
-    document.documentElement.dataset.perspective = key;
-    setText("perspective-name", view.name);
-    setText("opening-label", view.openingLabel);
-
-    const title = document.getElementById("opening-title");
-    if (title) title.innerHTML = view.title;
-
-    setText("opening-standfirst", view.standfirst);
-    setText("opening-context", view.context);
-    setText("tree-title", view.treeTitle);
-    setText("tree-intro", view.treeIntro);
-    setText("reader-label", view.readerLabel);
-    setText("reader-note", view.readerNote);
-
-    if (storyHeading) storyHeading.textContent = view.storyIntro;
-    if (currentHeading) currentHeading.textContent = view.currentTitle;
-    if (currentIntro) currentIntro.textContent = view.currentIntro;
-    if (aprilStoryHeading) aprilStoryHeading.textContent = view.aprilStoryTitle;
-
-    reorder(tree, view.treeOrder, "data-branch");
-    reorder(stories, view.storyOrder, "data-story");
-    renumber("#tree > .tree-chapter .chapter-number");
-    renumber("#story .stories > article > span");
-
-    if (options.persist !== false) safeStorageSet(key);
-    if (options.updateUrl !== false) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("view", key);
-      window.history.replaceState({ perspective: key }, "", url);
-    }
-
-    closeGate();
-    window.dispatchEvent(new CustomEvent("familyPerspectiveChange", {
-      detail: { key, name: view.name }
-    }));
-  }
-
-  document.querySelectorAll("[data-perspective-choice]").forEach((button) => {
-    button.addEventListener("click", () => {
-      applyPerspective(button.dataset.perspectiveChoice);
-      document.getElementById("opening-title")?.focus({ preventScroll: true });
-    });
-  });
-
-  if (changeButton) changeButton.addEventListener("click", openGate);
-  if (gate) gate.addEventListener("cancel", (event) => event.preventDefault());
-
-  const queryKey = new URLSearchParams(window.location.search).get("view");
-  const savedKey = safeStorageGet();
-  const initialKey = perspectives[queryKey] ? queryKey : (perspectives[savedKey] ? savedKey : null);
-
-  if (initialKey) applyPerspective(initialKey, { updateUrl: Boolean(queryKey) });
-  else openGate();
-})();
+supabase.auth.onAuthStateChange((event, session) => { if (event === "SIGNED_OUT") showPublic(); });
+try { const { data: { session } } = await supabase.auth.getSession(); await initializeSession(session); } catch (error) { console.error(error); showPublic(); showToast("The private record could not be loaded. Please try signing in again."); }

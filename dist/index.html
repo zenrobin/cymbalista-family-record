@@ -1,352 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A sourced, revisable family record for the Cymbalista–Johnson and Israel–Parajas–Apostol families.">
-  <meta name="theme-color" content="#24221d">
-  <title>Cymbalista–Israel Family Record</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A private, evidence-led documentary record of the Cymbalista, Johnson, Israel, Parajas, and Apostol families.">
+  <meta name="theme-color" content="#f4efe5"><title>The Family Record</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#record">Skip to the family record</a>
-
-  <dialog class="perspective-gate" id="perspective-gate" aria-labelledby="perspective-title" aria-describedby="perspective-intro">
-    <div class="perspective-panel">
-      <p class="section-label">Choose your point of view</p>
-      <h2 id="perspective-title">Where do you enter this story?</h2>
-      <p id="perspective-intro">The family record stays the same. Your choice changes which relationships, branches, places, and documentary chapters come first.</p>
-      <div class="perspective-options" role="list">
-        <button type="button" data-perspective-choice="richard"><strong>Richard Johnson</strong><span>Begin with the Cymbalista–Johnson line and the history Richard inherited.</span></button>
-        <button type="button" data-perspective-choice="robin"><strong>Robin Johnson</strong><span>Begin with Robin’s ancestry, marriages, and the histories passed to his children.</span></button>
-        <button type="button" data-perspective-choice="nolan"><strong>Nolan or Norah</strong><span>Give equal weight to the family lines inherited through Robin and April.</span></button>
-        <button type="button" data-perspective-choice="april"><strong>April</strong><span>Begin with the Israel–Parajas–Apostol line and its Filipino roots.</span></button>
-        <button type="button" data-perspective-choice="cymbalista"><strong>Cymbalista or Simblist relative</strong><span>Follow the surname, migrations, and related branches across countries.</span></button>
-        <button type="button" data-perspective-choice="israel"><strong>Israel or Apostol relative</strong><span>Begin with the Philippine branch and its open research questions.</span></button>
-      </div>
-      <p class="perspective-assurance"><strong>Perspective changes narration, not evidence.</strong> Names, sources, privacy limits, and confidence labels do not change.</p>
-    </div>
-  </dialog>
-
-  <header class="masthead">
-    <a class="identity" href="#top">
-      <span>Cymbalista–Israel</span>
-      <small>Family Record</small>
-    </a>
-    <div class="perspective-status" aria-live="polite">
-      <span>Viewing as <strong id="perspective-name">guest</strong></span>
-      <button type="button" id="change-perspective">Change</button>
-    </div>
-    <nav aria-label="Primary navigation">
-      <a href="#tree">Family tree</a>
-      <a href="#story">Documentary</a>
-      <a href="#faith">Faith & tradition</a>
-      <a href="#places">Places</a>
-      <a href="#evidence">Evidence</a>
-      <a href="#contribute">Corrections</a>
-    </nav>
-  </header>
-
-  <main id="record">
-    <section class="opening" id="top">
-      <div class="opening-kicker">
-        <span>Public working edition</span>
-        <span>Revision 05 · 14 September 2026</span>
-      </div>
-      <div class="opening-grid">
-        <div>
-          <p class="section-label" id="opening-label">A documented family history</p>
-          <h1 id="opening-title">One record.<br>Many ways in.</h1>
-        </div>
-        <div class="standfirst">
-          <p id="opening-standfirst">Choose where you enter the family. The record will reorganize itself around your relationships without changing the underlying facts.</p>
-          <p id="opening-context">Records remain distinct from family reconstruction, and historical setting from personal fact. Uncertainty is preserved because an honest question is more useful than a confident mistake.</p>
-        </div>
-      </div>
+  <a class="skip" href="#main">Skip to the record</a>
+  <header class="topbar"><a class="wordmark" href="/" aria-label="The Family Record home"><span class="seal">FR</span><span>The Family Record</span></a><div class="top-actions"><span id="session-label" class="session-label" hidden></span><button id="open-signin" class="button button-quiet">Family sign in</button><button id="signout" class="button button-quiet" hidden>Sign out</button></div></header>
+  <main id="main">
+    <section id="public-home" class="public-home">
+      <div class="public-hero"><p class="eyebrow">A documentary family archive</p><h1>What we know.<br><em>How we know it.</em></h1><p class="dek">A shared record of the Cymbalista, Johnson, Israel, Parajas, Apostol, and connected families—told from the reader’s place in the family, with uncertainty left visible.</p><div class="hero-actions"><button class="button button-primary" data-open="signin">Enter the family record</button><button class="button button-secondary" data-open="request">Request access</button></div></div>
+      <div class="public-collage" aria-label="A visual introduction to the archive"><figure class="paper paper-one"><div class="map-lines"></div><figcaption>Przysucha · Warsaw · London · Massachusetts</figcaption></figure><figure class="paper paper-two"><blockquote>Names change. Family memory leaves traces.</blockquote><figcaption>Records, photographs, and family testimony</figcaption></figure><figure class="paper paper-three"><div class="rings"></div><figcaption>Pangasinan and the Philippine family lines</figcaption></figure></div>
+      <div class="public-principles"><article><span>01</span><h2>A record, not a pitch</h2><p>The writing follows lives, migrations, work, belief, loss, and reinvention. It does not turn ancestors into a brand.</p></article><article><span>02</span><h2>Evidence stays attached</h2><p>Verified records, supplied family charts, reasoned reconstruction, historical context, and open questions are plainly distinguished.</p></article><article><span>03</span><h2>Your place changes the telling</h2><p>Richard, Robin, April, Nolan, Norah, Adi, and more distant relatives each enter the same record by a different route.</p></article></div>
+      <section class="public-note"><p class="eyebrow">Why access is limited</p><h2>The complete archive includes living people.</h2><p>Dates, places, portraits, family relationships, and original source files are shown only to approved family members. The public entrance explains the project without exposing that private material.</p></section>
     </section>
-
-    <section class="editor-note" aria-labelledby="editor-note-title">
-      <div>
-        <p class="section-label">Editor’s note</p>
-        <h2 id="editor-note-title">What changed in this edition</h2>
-      </div>
-      <div>
-        <p>April is correctly recorded as Robin’s former wife and the mother of Nolan and Norah—not as Robin’s sibling. Her ancestry is restored from the supplied seven-page family chart.</p>
-        <p>Robin married Adi on 22 August 2026. Robin and Adi have no children together. Living people are named only where the relationship is necessary; their portraits, birth dates, and locations remain private.</p>
-      </div>
-    </section>
-
-    <section class="legend" aria-label="Evidence label guide">
-      <span class="badge verified">Verified</span><p>Independently checked institutional or first-hand source.</p>
-      <span class="badge supported">Source-backed</span><p>Shown in supplied family material; underlying record not yet re-inspected.</p>
-      <span class="badge reconstruction">Reconstruction</span><p>A reasoned family conclusion that still needs direct evidence.</p>
-      <span class="badge open">Open question</span><p>Incomplete, ambiguous, or conjectural.</p>
-      <span class="badge context">Historical context</span><p>Verified setting; not proof of an individual’s belief or action.</p>
-    </section>
-
-    <section class="section tree-section" id="tree">
-      <header class="section-head">
-        <div>
-          <p class="section-label">The recreated family tree</p>
-          <h2 id="tree-title">A family structure, viewed from where you stand</h2>
-        </div>
-        <p id="tree-intro">Lines indicate descent, not certainty. Open each card for the present evidence. Your perspective changes the order of the branches, while the evidence stays fixed.</p>
-      </header>
-
-      <article class="tree-chapter current-family" id="current-branch" data-branch="current">
-        <header>
-          <span class="chapter-number">01</span>
-          <div><h3>Nolan and Norah’s immediate family</h3><p>The two parental lines meet here.</p></div>
-        </header>
-        <div class="relationship-grid">
-          <details class="person living" open>
-            <summary><span class="initials">R</span><span><strong>Robin</strong><small>Father · living details limited</small></span></summary>
-            <div class="person-body"><span class="badge supported">Direct statement</span><p>Child of the Johnson branch recorded below. Robin supplied the relationship corrections in this edition.</p></div>
-          </details>
-          <div class="relationship former">
-            <span>former marriage</span>
-            <strong>Robin + April</strong>
-            <small>Co-parents of Nolan and Norah</small>
-          </div>
-          <details class="person living" open>
-            <summary><span class="initials">A</span><span><strong>April</strong><small>Mother · Israel family</small></span></summary>
-            <div class="person-body"><span class="badge supported">Direct statement + supplied chart</span><p>April’s family line is recorded in its own branch below and belongs equally in Nolan and Norah’s ancestry.</p></div>
-          </details>
-          <div class="children">
-            <span class="stem"></span>
-            <div>
-              <div class="living-chip"><strong>Nolan</strong><small>Child of Robin and April</small></div>
-              <div class="living-chip"><strong>Norah</strong><small>Child of Robin and April</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="current-marriage">
-          <span class="line-label">Current marriage</span>
-          <strong>Robin + Adi</strong>
-          <span>married 22 August 2026</span>
-          <span>no children together</span>
-          <span class="badge supported">Direct statement</span>
-        </div>
-      </article>
-
-      <article class="tree-chapter" id="johnson-branch" data-branch="johnson">
-        <header>
-          <span class="chapter-number">02</span>
-          <div><h3>Robin’s Cymbalista–Johnson ancestry</h3><p>From Przysucha and Warsaw through London to Massachusetts.</p></div>
-        </header>
-        <div class="lineage">
-          <details class="person">
-            <summary><span class="initials">WC</span><span><strong>Wolf Cymbalista</strong><small>born c. 1760s · Przysucha</small></span></summary>
-            <div class="person-body"><span class="badge reconstruction">Reconstruction</span><p>Earliest named ancestor in the working narrative. His identification as a musician has not yet been tied to an original record.</p></div>
-          </details>
-          <details class="person">
-            <summary><span class="initials">IC</span><span><strong>Icyk (Isaac) Cymbalista</strong><small>born c. 1791 · Przysucha</small></span></summary>
-            <div class="person-body"><span class="badge reconstruction">Reconstruction</span><p>Reported son of Wolf and a second-generation musician. Both date and occupation need direct documentation.</p></div>
-          </details>
-          <div class="couple">
-            <details class="person">
-              <summary><span class="initials">RC</span><span><strong>Rachmil Cymbalista</strong><small>1836–1918 · teacher</small></span></summary>
-              <div class="person-body"><span class="badge supported">Source-backed</span><p>The narrative reports civil records and a gravestone praising Torah learning. A new grave image and independent translation remain priorities.</p></div>
-            </details>
-            <details class="person">
-              <summary><span class="initials">FS</span><span><strong>Fajga Pejsa Szpitzberg</strong><small>1835–1908 · Feiga Pesi</small></span></summary>
-              <div class="person-body"><span class="badge supported">Source-backed</span><p>Reported daughter of Kaufman Szpitzberg and Gitla. The narrative cites an 1855 marriage act and later life in London.</p></div>
-            </details>
-          </div>
-          <details class="person">
-            <summary><span class="initials">IW</span><span><strong>Isaac Wolf Simblist</strong><small>born 1858 · London branch</small></span></summary>
-            <div class="person-body"><span class="badge supported">Source-backed</span><p>Reported eldest surviving son of Rachmil and Fajga. The family narrative places his shop at 60 West India Dock Road.</p></div>
-          </details>
-          <div class="couple portraits">
-            <details class="person portrait">
-              <summary><img src="https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/joseph.webp" alt="Portrait preserved from the family tree for Joseph Edward Johnson"><span><strong>Joseph Edward Johnson</strong><small>Josel Cymbalista · 1890–c. 1953</small></span></summary>
-              <div class="person-body"><span class="badge reconstruction">Reconstruction</span><p>The working case that Josel Cymbalista became Joseph Edward Johnson rests on DNA matches, census material, and naturalization clues that still need to be assembled as a reviewable chain.</p></div>
-            </details>
-            <details class="person portrait">
-              <summary><img src="https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/dorothy.webp" alt="Portrait preserved from the family tree for Dorothy Kate Dale"><span><strong>Dorothy Kate Dale</strong><small>Marylebone → Massachusetts</small></span></summary>
-              <div class="person-body"><span class="badge supported">Source-backed</span><p>Joseph’s wife. Her reported naturalization record is central to the Johnson–Cymbalista identity reconstruction.</p></div>
-            </details>
-          </div>
-          <div class="couple portraits">
-            <details class="person portrait">
-              <summary><img src="https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/joseph-sidney.webp" alt="Portrait preserved from the family tree for Joseph Sidney Johnson"><span><strong>Joseph Sidney Johnson</strong><small>Massachusetts</small></span></summary>
-              <div class="person-body"><span class="badge supported">Supplied tree</span><p>Shown as Joseph and Dorothy’s son in the supplied 171-person family tree.</p></div>
-            </details>
-            <details class="person portrait">
-              <summary><img src="https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/barbara.webp" alt="Portrait preserved from the family tree for Barbara Ellen Johnson"><span><strong>Barbara Ellen Johnson</strong><small>née Mirling · died 2007</small></span></summary>
-              <div class="person-body"><span class="badge supported">Supplied tree</span><p>Shown as Joseph Sidney’s spouse and the next link in Robin’s Johnson branch.</p></div>
-            </details>
-          </div>
-          <div class="private-generation">
-            <span>Living generation withheld</span>
-            <strong>Richard + Janet → Robin</strong>
-            <small>Relationship retained; portraits, birth years, and locations omitted from this public edition.</small>
-          </div>
-        </div>
-      </article>
-
-      <article class="tree-chapter april-branch" id="april-branch" data-branch="april">
-        <header>
-          <span class="chapter-number">03</span>
-          <div><h3>April’s Israel–Parajas–Apostol ancestry</h3><p>Filipino roots with a strong research trail into Pangasinan.</p></div>
-        </header>
-        <div class="lineage two-column">
-          <div class="couple portraits">
-            <details class="person portrait">
-              <summary><img src="https://raw.githubusercontent.com/zenrobin/cymbalista-family-record/main/dist/assets/portraits/benjamin.webp" alt="Portrait preserved from April's supplied tree for Benjamin Parajas Israel"><span><strong>Benjamin Parajas Israel</strong><small>1935–1995</small></span></summary>
-              <div class="person-body"><span class="badge supported">Supplied chart</span><p>April’s father. A public index points to a 31 August 1935 birth in Pangasinan and names matching parents, but the original civil or church record has not yet been reviewed.</p></div>
-            </details>
-            <details class="person">
-              <summary><span class="initials">AI</span><span><strong>Asuncion Israel</strong><small>née Apostol · living details limited</small></span></summary>
-              <div class="person-body"><span class="badge supported">Supplied chart</span><p>April’s mother. Exact dates, town, and religious practice are not stated in the material reviewed.</p></div>
-            </details>
-          </div>
-          <div class="parent-lines">
-            <section>
-              <p class="line-label">Benjamin’s parents</p>
-              <details class="person compact"><summary><span class="initials">PI</span><span><strong>Primitivo Israel</strong><small>record details open</small></span></summary><div class="person-body"><span class="badge supported">Supplied chart</span></div></details>
-              <details class="person compact"><summary><span class="initials">RI</span><span><strong>Rosita Estantino Israel</strong><small>née Parajas</small></span></summary><div class="person-body"><span class="badge supported">Supplied chart</span></div></details>
-            </section>
-            <section>
-              <p class="line-label">Asuncion’s parents</p>
-              <details class="person compact"><summary><span class="initials">JA</span><span><strong>Jose Perez Apostol</strong><small>1908–1974</small></span></summary><div class="person-body"><span class="badge supported">Supplied chart</span></div></details>
-              <details class="person compact"><summary><span class="initials">FC</span><span><strong>Filomena Cruz Apostol</strong><small>record details open</small></span></summary><div class="person-body"><span class="badge supported">Supplied chart</span></div></details>
-            </section>
-          </div>
-          <div class="older-line">
-            <p class="line-label">Earlier Apostol line</p>
-            <strong>Federico Apostol + Anatalia Tiozon Apostol</strong>
-            <span class="badge supported">Supplied chart</span>
-          </div>
-          <div class="branch-note">
-            <p class="line-label">Wider surnames visible in April’s chart</p>
-            <p>Abalos · Bataclan · Fermil · Feraren · Taccad · Benito · Mascarina · Perez · Cruz · Tiozon · Peleno · Badion · Renomeron · de Paz · Alpino · Decina · Redobla · Brown · Galo</p>
-            <small>Many people in these collateral branches may be living, so this public edition records surnames rather than publishing their full cards.</small>
-          </div>
-        </div>
-      </article>
-
-      <article class="tree-chapter" id="wider-branches" data-branch="wider">
-        <header>
-          <span class="chapter-number">04</span>
-          <div><h3>The wider Cymbalista branches</h3><p>One family name acquired several English spellings.</p></div>
-        </header>
-        <div class="branch-register">
-          <section><h4>Simblist</h4><p>London · Boston · Sydney</p><p>Isaac Wolf, Jacob, Morris, Reuben, Kate, Annie, and their descendants.</p><span class="badge supported">Family register</span></section>
-          <section><h4>Cymbalist</h4><p>London</p><p>Aaron’s branch retained a spelling closest to the Polish occupational surname.</p><span class="badge supported">Family register</span></section>
-          <section><h4>Symberlist</h4><p>London · France · São Paulo</p><p>Abram Sucher’s branch includes unresolved claims concerning Charles and the Lazarus–Louis–Henry Sims identity chain.</p><span class="badge open">Open questions</span></section>
-          <section><h4>Samuel Hyman Simblist</h4><p>Sydney · 1909–1977</p><p>District Court judge, synagogue supporter, Zionist organizer, Hebrew speaker, and advocate for Jewish immigrant welfare.</p><span class="badge verified">AJHS + first-hand eulogy</span></section>
-        </div>
-      </article>
-    </section>
-
-    <section class="section story-section" id="story">
-      <header class="section-head narrow">
-        <p class="section-label">Documentary chapters</p>
-        <h2>What is distinctive about this family past</h2>
-        <p>These are not sales points. They are the recurring patterns that make the evidence worth preserving for the next generation.</p>
-      </header>
-      <div class="stories">
-        <article data-story="music"><span>01</span><div><h3>A name that remembers music</h3><p><em>Cymbalista</em> is understood as an occupational name associated with the cimbalom, a hammered-string instrument of Central and Eastern Europe. The narrative remembers Wolf and Icyk as musicians. The surname meaning is credible context; their personal occupations remain unverified.</p></div></article>
-        <article data-story="teaching"><span>02</span><div><h3>A teacher’s reputation crossed borders</h3><p>Rachmil is remembered as a rabbi, but the supplied gravestone summary more specifically emphasizes Torah teaching. That distinction matters: the strongest surviving religious inheritance may be learning and transmission rather than formal office.</p></div></article>
-        <article data-story="migration"><span>03</span><div><h3>Migration changed spelling, work, and memory</h3><p>Przysucha became Warsaw; Warsaw became London; London opened into Boston, Sydney, and São Paulo. Simblist, Cymbalist, Symberlist, and eventually Johnson show how migration altered public identity while family relationships remained underneath.</p></div></article>
-        <article data-story="rediscovery"><span>04</span><div><h3>A lost Jewish connection was reconstructed</h3><p>The Johnson descendants reportedly grew up without knowing the Warsaw Jewish connection. Family research argues that DNA matches and records restored that link roughly a century later. It is a compelling reconstruction, but the match-by-match evidence should be published privately for review.</p></div></article>
-        <article data-story="april"><span>05</span><div><h3>The children inherit a second migration history</h3><p>April’s chart adds a Filipino story centered on the Israel, Parajas, and Apostol families. Pangasinan is the leading geographic clue, not yet a proven town-by-town route. This branch brings its own surnames, possible parish records, and traditions that deserve direct oral-history interviews.</p></div></article>
-      </div>
-    </section>
-
-    <section class="section faith-section" id="faith">
-      <header class="section-head">
-        <div><p class="section-label">Faith, religion, and tradition</p><h2>What can be inherited—and what still needs asking</h2></div>
-        <p>Religious context belongs in the record, but it must not be mistaken for proof about a particular person.</p>
-      </header>
-      <div class="faith-grid">
-        <article><h3>Jewish learning</h3><p>Hebrew names, reported Torah teaching, synagogue service, Jewish burial, and memorial naming form the clearest Jewish thread. Samuel Simblist’s public Jewish life in Sydney is independently documented.</p><span class="badge supported">Mixed evidence</span></article>
-        <article><h3>Przysucha and Hasidism</h3><p>Przysucha became a major center of Polish Hasidism associated with the Holy Jew and Simcha Bunim. That makes it essential context, but there is no evidence yet that this family followed the Przysucha court.</p><span class="badge context">Context only</span></article>
-        <article><h3>April’s family traditions</h3><p>Roman Catholicism is historically prominent in Pangasinan and the wider Ilocos Region, and the Diocese of Lingayen-Dagupan has extensive parish registers. Neither fact proves what April’s parents or grandparents practiced.</p><span class="badge open">Ask the family</span></article>
-        <article><h3>Questions for oral history</h3><p>Which holidays were observed? Which prayers, foods, languages, saints, synagogue or parish communities mattered? Which customs continued after migration? Answers should be attributed to the person who remembers them.</p><span class="badge open">Interview priority</span></article>
-      </div>
-      <aside class="young-readers reader-context"><strong id="reader-label">From your point of view</strong><p id="reader-note">Choose a perspective to see which branches and places are most directly connected to you. The underlying family record remains shared.</p></aside>
-    </section>
-
-    <section class="section places-section" id="places">
-      <header class="section-head">
-        <div><p class="section-label">A roots itinerary</p><h2>Places where the record becomes tangible</h2></div>
-        <p>Confirm opening hours and access before traveling. A museum or congregation can explain historical setting even when it is not a proven family site.</p>
-      </header>
-      <div class="places">
-        <article><span>Poland</span><h3>Przysucha</h3><p>See the historic synagogue and Jewish cemetery, then learn about the Holy Jew and Simcha Bunim without assuming family affiliation.</p><a href="https://fodz.pl/?d=5&id=93&l=pl" target="_blank" rel="noopener">Synagogue restoration record</a></article>
-        <article><span>Poland</span><h3>Warsaw</h3><p>Use POLIN Museum and the Jewish Historical Institute to understand Jewish Warsaw and pursue addresses, civil records, and genealogy.</p><a href="https://www.polin.pl/en" target="_blank" rel="noopener">POLIN Museum</a><a href="https://www.jhi.pl/en" target="_blank" rel="noopener">Jewish Historical Institute</a></article>
-        <article><span>United Kingdom</span><h3>London’s East End</h3><p>Research West India Dock Road, visit the historic Jewish East End, and arrange cemetery access. Sandys Row is living context, not a proven family congregation.</p><a href="https://sandysrowsynagogue.org/visits/" target="_blank" rel="noopener">Sandys Row visits</a><a href="https://www.federation.org.uk/cemeteries/" target="_blank" rel="noopener">Federation cemeteries</a></article>
-        <article><span>United States</span><h3>Cambridge and Boston</h3><p>Follow the Johnson, Jacob, and Morris chapters through census, naturalization, city-directory, and business records before treating any modern address as ancestral.</p><a href="https://www.boston.gov/departments/archives-and-records-management" target="_blank" rel="noopener">Boston City Archives</a></article>
-        <article><span>Australia</span><h3>Sydney</h3><p>Explore the community Samuel Hyman Simblist served through the Australian Jewish Historical Society and the Great Synagogue.</p><a href="https://collections.ajhs.com.au/" target="_blank" rel="noopener">AJHS collections</a><a href="https://www.greatsynagogue.org.au/" target="_blank" rel="noopener">Great Synagogue</a></article>
-        <article><span>Philippines</span><h3>Pangasinan</h3><p>Begin with provincial archives and the Lingayen-Dagupan parish collection. First identify Benjamin’s municipality before planning a town-specific visit.</p><a href="https://www.pangasinan.gov.ph/department/provincial-archives-and-records-center/" target="_blank" rel="noopener">Provincial Archives</a><a href="https://www.familysearch.org/en/search/collection/1646454" target="_blank" rel="noopener">Parish registers, 1615–1982</a></article>
-      </div>
-    </section>
-
-    <section class="section evidence-section" id="evidence">
-      <header class="section-head">
-        <div><p class="section-label">Research ledger</p><h2>Claims, confidence, and the next record</h2></div>
-        <p>The labels explain why a statement is trusted. They are more honest than invented numerical confidence scores.</p>
-      </header>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Claim</th><th>Status</th><th>Basis</th><th>Next evidence</th></tr></thead>
-          <tbody>
-            <tr><th>Nolan and Norah are Robin and April’s children</th><td><span class="badge supported">Direct statement</span></td><td>Both supplied trees plus Robin’s correction.</td><td>Keep living details private unless each person consents.</td></tr>
-            <tr><th>Robin and Adi married 22 August 2026 and have no shared children</th><td><span class="badge supported">Direct statement</span></td><td>Robin’s first-hand statement.</td><td>Optional private copy of marriage record.</td></tr>
-            <tr><th>Benjamin is the son of Primitivo Israel and Rosita Parajas</th><td><span class="badge supported">Source-backed</span></td><td>April’s supplied chart; matching public index lead.</td><td>Obtain original Pangasinan civil or parish record.</td></tr>
-            <tr><th>The Israel–Apostol line practiced Catholicism</th><td><span class="badge open">Open question</span></td><td>Regional history only; no family-specific statement found.</td><td>Interview relatives and inspect baptism or marriage records.</td></tr>
-            <tr><th>Rachmil was a Torah teacher</th><td><span class="badge supported">Source-backed</span></td><td>Family narrative’s gravestone summary.</td><td>New photograph, cemetery entry, independent translation.</td></tr>
-            <tr><th>Joseph Edward Johnson was Josel Cymbalista</th><td><span class="badge reconstruction">Reconstruction</span></td><td>Family DNA account plus census and naturalization clues.</td><td>Document the DNA chain and attach every cited record.</td></tr>
-            <tr><th>The family followed Przysucha Hasidism</th><td><span class="badge open">Not established</span></td><td>The town was a Hasidic center; that alone proves no affiliation.</td><td>Search synagogue, burial, and community records.</td></tr>
-            <tr><th>Samuel Hyman Simblist’s public Jewish life</th><td><span class="badge verified">Verified</span></td><td>AJHS indexes and Rabbi Raymond Apple’s first-hand eulogy.</td><td>Add copies or archival citations where permitted.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="source-register">
-        <div><p class="section-label">Source register</p><h3>Materials used in this edition</h3><p>The uploaded trees and narrative are not downloadable because they contain living-family details.</p></div>
-        <ol>
-          <li><span>01</span><div><strong>171-person family-tree export</strong><small>Supplied PDF · private source</small></div></li>
-          <li><span>02</span><div><strong>Cymbalista Family Narrative, Draft 1.1</strong><small>Supplied document · private source</small></div></li>
-          <li><span>03</span><div><strong>April’s seven-page family chart</strong><small>Supplied PDF · private source</small></div></li>
-          <li><span>04</span><div><strong>Przysucha synagogue</strong><small>Foundation for the Preservation of Jewish Heritage in Poland</small></div><a href="https://fodz.pl/?d=5&id=93&l=pl" target="_blank" rel="noopener">Open</a></li>
-          <li><span>05</span><div><strong>Hasidism and Warsaw</strong><small>YIVO Encyclopedia</small></div><a href="https://encyclopedia.yivo.org/article.aspx/Hasidism/Historical_Overview" target="_blank" rel="noopener">Open</a></li>
-          <li><span>06</span><div><strong>Samuel Hyman Simblist</strong><small>Australian Jewish Historical Society</small></div><a href="https://collections.ajhs.com.au/Detail/entities/216840" target="_blank" rel="noopener">Open</a></li>
-          <li><span>07</span><div><strong>Eulogy for Judge S. H. Simblist</strong><small>Rabbi Raymond Apple</small></div><a href="https://oztorah.com/2013/09/eulogy-for-judge-sh-simblist/" target="_blank" rel="noopener">Open</a></li>
-          <li><span>08</span><div><strong>Benjamin P. Israel index lead</strong><small>Secondary public index · original record not reviewed</small></div><a href="https://sortedbyname.com/letter_i/israel/index_13.html" target="_blank" rel="noopener">Open</a></li>
-          <li><span>09</span><div><strong>Lingayen-Dagupan parish registers</strong><small>FamilySearch collection, 1615–1982</small></div><a href="https://www.familysearch.org/en/search/collection/1646454" target="_blank" rel="noopener">Open</a></li>
-          <li><span>10</span><div><strong>Pangasinan Provincial Archives</strong><small>Records and research destination</small></div><a href="https://www.pangasinan.gov.ph/department/provincial-archives-and-records-center/" target="_blank" rel="noopener">Open</a></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section contribute-section" id="contribute">
-      <header class="section-head narrow">
-        <p class="section-label">Corrections and additions</p>
-        <h2>A family source of truth must remain revisable</h2>
-        <p>Proposed changes should identify one claim, preserve the earlier wording, attach or describe evidence, and appear in a dated revision note after review.</p>
-      </header>
-      <div class="contribution-grid">
-        <div><h3>Useful submissions</h3><ul><li>The person and exact claim being changed.</li><li>A record link, photograph, inscription, or attributed first-hand account.</li><li>Who supplied it and whether it may be public.</li></ul></div>
-        <div><h3>Review sequence</h3><ol><li>Preserve the existing claim.</li><li>Attach proposed evidence.</li><li>Review contradictions and privacy.</li><li>Publish a dated revision note.</li></ol></div>
-        <div><h3>Priority questions</h3><ul><li>Which Pangasinan municipality was Benjamin born in?</li><li>What faith and holiday traditions did April’s family practice?</li><li>Can the Cymbalista grave inscriptions be re-photographed?</li><li>Can the DNA chain be documented match by match?</li></ul></div>
-      </div>
-      <div class="submission-status">
-        <a href="https://github.com/zenrobin/cymbalista-family-record/issues/new?template=family-record-correction.yml" target="_blank" rel="noopener">Propose a correction or addition</a>
-        <p>GitHub submissions are public. Do not attach unredacted records or photographs of living people; describe private evidence and arrange a secure review instead.</p>
-      </div>
+    <section id="private-app" class="private-app" hidden>
+      <aside class="reader-bar"><div><p class="eyebrow">Reading as</p><select id="perspective-select" aria-label="Choose whose point of view tells the story"></select></div><nav aria-label="Family record sections"><a href="#story">Story</a><a href="#people">People</a><a href="#places">Places & faith</a><a href="#sources">Sources</a><a href="#contribute">Add to the record</a><a id="admin-link" href="#admin" hidden>Admin</a></nav></aside>
+      <section class="record-hero"><div><p id="pov-kicker" class="eyebrow">The record from your point of view</p><h1 id="pov-title"></h1><p id="pov-lede" class="dek"></p></div><div id="focus-portrait" class="focus-portrait"></div></section>
+      <section id="connection" class="connection-band" aria-live="polite"></section>
+      <section id="story" class="record-section"><header class="section-header"><div><p class="eyebrow">The documentary</p><h2>A story shaped by where you stand</h2></div><p>Changing the reader changes emphasis and relationship language. It never changes the underlying claim or its evidence.</p></header><div id="featured-stories" class="story-stack"></div><details class="chapter-drawer"><summary>Read the complete eleven-chapter family narrative</summary><div id="full-narrative" class="longform"></div></details></section>
+      <section id="people" class="record-section"><header class="section-header"><div><p class="eyebrow">The family structure</p><h2 id="people-heading">People and relationships</h2></div><p>Open a person to see the information and evidence currently held in the record.</p></header><div class="legend" aria-label="Evidence labels"><span data-evidence="verified">Verified</span><span data-evidence="source-backed">Source-backed</span><span data-evidence="reconstruction">Reconstruction</span><span data-evidence="open-question">Open question</span><span data-evidence="historical-context">Historical context</span></div><div id="branch-sections"></div></section>
+      <section id="places" class="record-section places-section"><header class="section-header"><div><p class="eyebrow">Roots to visit</p><h2>Places, faith, and inherited traditions</h2></div><p id="places-intro"></p></header><div id="journey" class="journey"></div><article class="faith-card"><p class="eyebrow">Faith and tradition</p><h3 id="faith-title"></h3><div id="faith-copy"></div></article></section>
+      <section id="sources" class="record-section"><header class="section-header"><div><p class="eyebrow">The evidence room</p><h2>Original sources and research</h2></div><p>Source files are preserved in their original bytes. Page images make the charts easier to examine on screen.</p></header><div id="source-files" class="source-files"></div><div class="source-toolbar"><label>Search chart cards <input id="archive-search" type="search" placeholder="Name or transcript"></label><button id="load-archive" class="button button-secondary">Open visual source atlas</button></div><div id="archive-grid" class="archive-grid"></div><h3 class="subhead">Research and context sources</h3><div id="research-list" class="research-list"></div></section>
+      <section id="contribute" class="record-section contribute-section"><header class="section-header"><div><p class="eyebrow">A living record</p><h2>Propose an addition or correction</h2></div><p>Submissions become reviewable claims with an author and source note. They never silently overwrite the family record.</p></header><form id="proposal-form" class="form-grid"><label>About whom? <select id="proposal-person" name="person_key"><option value="">The family generally</option></select></label><label>Kind of contribution <select name="proposal_type" required><option>Correction</option><option>New person</option><option>Relationship</option><option>Story or memory</option><option>Photograph</option><option>Source</option></select></label><label class="wide">What should be added or changed? <textarea name="proposed_change" minlength="5" maxlength="5000" required></textarea></label><label class="wide">What supports it? <textarea name="source_description" placeholder="Document, photograph, interview, or how you know"></textarea></label><button class="button button-primary" type="submit">Submit for family review</button><p id="proposal-status" class="form-status" role="status"></p></form></section>
+      <section id="admin" class="record-section admin-section" hidden><header class="section-header"><div><p class="eyebrow">Family administrators</p><h2>Access requests</h2></div><p>Approve only people you recognize. Approval creates family access and sends a one-time sign-in link.</p></header><div id="request-list"></div></section>
     </section>
   </main>
-
-  <footer>
-    <p><strong>Cymbalista–Israel Family Record</strong><br>Working public edition · Revision 05 · 14 September 2026</p>
-    <p>Family statements are not presented as proof unless independently supported. Living-family privacy is deliberate.</p>
-  </footer>
-  <script src="app.js"></script>
+  <dialog id="access-dialog" class="access-dialog"><button class="dialog-close" aria-label="Close">×</button><section id="signin-panel"><p class="eyebrow">Approved family members</p><h2>Send me a one-time link</h2><p>Enter the email approved for this archive. No password or account setup is required.</p><form id="signin-form"><label>Email address <input name="email" type="email" autocomplete="email" required></label><button class="button button-primary" type="submit">Email my private link</button><p id="signin-status" class="form-status" role="status"></p></form><button class="text-button" data-switch="request">Not approved yet? Request access</button></section><section id="request-panel" hidden><p class="eyebrow">Request family access</p><h2>Tell the family editor who you are</h2><p>Your request goes to the private administrator queue. It does not make any family data public.</p><form id="request-form"><label>Your name <input name="name" autocomplete="name" minlength="2" maxlength="120" required></label><label>Email address <input name="email" type="email" autocomplete="email" required></label><label>How are you connected, and why would you like access? <textarea name="reason" minlength="5" maxlength="1200" required></textarea></label><button class="button button-primary" type="submit">Send request</button><p id="request-status" class="form-status" role="status"></p></form><button class="text-button" data-switch="signin">I already have access</button></section></dialog>
+  <dialog id="person-dialog" class="person-dialog"><button class="dialog-close" aria-label="Close">×</button><div id="person-detail"></div></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
